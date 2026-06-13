@@ -1,0 +1,29 @@
+name: Duda API Rate Limits
+description: The Duda Partner API enforces rate limits to ensure platform stability and fair usage across all partners. The API has a hard limit of 10 API calls per second across all endpoints. Exceeding the rate limit returns a 429 Too Many Requests HTTP status code, requiring callers to back off and retry. For batch processes Duda recommends pacing requests to one call every 125 milliseconds (approximately 8 requests per second) to stay safely within limits.
+url: https://developer.duda.co/reference/introduction
+limits:
+  - name: Global Request Rate
+    description: Hard maximum number of API calls allowed per second across all endpoints for a given API account.
+    unit: requests per second
+    limit: 10
+    scope: account
+    httpStatus: 429
+    notes: Exceeding this limit returns HTTP 429 Too Many Requests. Retry after a delay.
+  - name: Recommended Batch Rate
+    description: Recommended maximum request rate for batch or automated processes to avoid hitting the hard limit.
+    unit: requests per second
+    limit: 8
+    scope: account
+    notes: Equivalent to one request every 125 milliseconds. Provides a safety margin below the 10 req/s hard limit.
+headers:
+  - name: HTTP 429 Too Many Requests
+    description: Returned when the rate limit is exceeded. Callers should implement exponential backoff and retry logic.
+errors:
+  - code: 429
+    description: Too Many Requests - Rate limit exceeded. Slow down request rate and retry after a delay.
+    retryable: true
+recommendations:
+  - Implement exponential backoff when receiving 429 responses.
+  - For bulk operations, pace requests to one every 125ms or slower.
+  - Monitor response codes to detect rate limiting before it causes failures.
+  - Custom enterprise plans may have higher or negotiated rate limits; contact Duda sales for details.

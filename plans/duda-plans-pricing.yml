@@ -1,0 +1,104 @@
+name: Duda Plans and Pricing
+description: Duda offers tiered subscription plans for agencies, SaaS platforms, and web professionals building and managing websites at scale. Plans vary by number of sites included, team members, support level, white-label capabilities, and API access. All plans include access to the Partner API, with custom enterprise plans offering unlimited API calls.
+url: https://www.duda.co/pricing
+plans:
+  - name: Basic
+    description: Entry-level plan for individual professionals managing a single website with email support and core website building features.
+    url: https://www.duda.co/pricing
+    price: 19.00
+    unit: month
+    currency: USD
+    annualPrice: 9.50
+    annualUnit: month
+    features:
+      - 1 site included
+      - Email support
+      - Core website builder tools
+      - Responsive design
+      - SSL certificate
+      - Additional sites at $19/mo or $171/yr each
+  - name: Team
+    description: Collaborative plan for small teams managing websites with code access, client management, and team collaboration features.
+    url: https://www.duda.co/pricing
+    price: 29.00
+    unit: month
+    currency: USD
+    annualPrice: 14.50
+    annualUnit: month
+    features:
+      - 1 site included
+      - Up to 3 team members
+      - Email support
+      - Code access (HTML/CSS/JS)
+      - Client management tools
+      - Additional sites at $17/mo or $168/yr each
+  - name: Agency
+    description: Best value plan for agencies managing multiple client websites with priority support and full team collaboration.
+    url: https://www.duda.co/pricing
+    price: 52.00
+    unit: month
+    currency: USD
+    annualPrice: 26.00
+    annualUnit: month
+    features:
+      - 4 sites included
+      - Up to 6 team members
+      - Priority support
+      - Code access (HTML/CSS/JS)
+      - Client management tools
+      - Additional sites at $17/mo or $168/yr each
+  - name: White Label
+    description: Full white-label plan for agencies offering branded website building services to clients under their own brand.
+    url: https://www.duda.co/pricing
+    price: 149.00
+    unit: month
+    currency: USD
+    annualPrice: 74.50
+    annualUnit: month
+    features:
+      - 4 sites included
+      - Up to 6 team members
+      - Priority support
+      - Code access (HTML/CSS/JS)
+      - Client management tools
+      - Full white-label branding and customization
+      - White-label client portal
+      - Additional sites at $17/mo or $168/yr each
+  - name: Custom
+    description: Enterprise plan for large agencies and SaaS platforms requiring high-volume site management, unlimited API calls, and dedicated support.
+    url: https://www.duda.co/pricing
+    price: 0.00
+    unit: month
+    currency: USD
+    features:
+      - Negotiable number of sites with volume discounts
+      - Unlimited team members
+      - 24/7 VIP support
+      - Code access (HTML/CSS/JS)
+      - Client management tools
+      - Full white-label branding
+      - Unlimited API calls
+      - Dedicated account management
+      - Custom pricing based on volume
+addons:
+  - name: eCommerce Standard
+    description: Add eCommerce to a site supporting up to 100 products.
+    price: 8.00
+    unit: month
+    currency: USD
+    annualPrice: 7.00
+    annualUnit: month
+  - name: eCommerce Advanced
+    description: Add eCommerce to a site supporting up to 1,000 products with automated taxes and shipping.
+    price: 22.00
+    unit: month
+    currency: USD
+    annualPrice: 20.00
+    annualUnit: month
+  - name: eCommerce Elite
+    description: Add eCommerce to a site supporting up to 20,000 products at full scale.
+    price: 52.00
+    unit: month
+    currency: USD
+    annualPrice: 45.00
+    annualUnit: month

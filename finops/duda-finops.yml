@@ -1,0 +1,56 @@
+name: Duda FinOps
+description: Financial operations guidance for managing Duda API and platform costs. Duda pricing is subscription-based with per-site costs, team member seats, and optional eCommerce add-ons. API access is included in all paid plans, with unlimited API calls available on the Custom enterprise tier. Cost optimization focuses on choosing the right plan tier based on site volume, using annual billing for 25% savings, and negotiating volume pricing on the Custom plan.
+url: https://www.duda.co/pricing
+costDrivers:
+  - name: Subscription Plan
+    description: Monthly or annual subscription fee covering base platform access, number of sites, team seats, and support tier. Plans range from $9.50/mo (Basic annual) to $149/mo (White Label monthly).
+    type: fixed
+    notes: Annual billing provides 25% savings over monthly billing across all plans.
+  - name: Additional Sites
+    description: Per-site cost for sites beyond those included in the base plan. Charged at $17-19/mo per site on monthly billing, or $168-171/yr on annual billing.
+    type: variable
+    unit: per site per month
+    range:
+      min: 17.00
+      max: 19.00
+    currency: USD
+  - name: eCommerce Add-ons
+    description: Optional per-site eCommerce capabilities billed monthly or annually. Tiers based on product catalog size.
+    type: variable
+    unit: per site per month
+    tiers:
+      - name: Standard
+        limit: 100 products
+        price: 8.00
+        annualPrice: 7.00
+      - name: Advanced
+        limit: 1000 products
+        price: 22.00
+        annualPrice: 20.00
+      - name: Elite
+        limit: 20000 products
+        price: 52.00
+        annualPrice: 45.00
+    currency: USD
+  - name: API Usage
+    description: API calls are included in all plans with a rate limit of 10 requests per second. The Custom enterprise plan offers unlimited API calls. No per-call metering on standard plans.
+    type: included
+    notes: High-volume API usage should be discussed with Duda sales to negotiate a Custom plan.
+optimizationStrategies:
+  - name: Annual Billing
+    description: Switch from monthly to annual billing to save 25% on all plan tiers.
+    savingsPercent: 25
+  - name: Right-Size Plan
+    description: Select the plan tier that matches your current site volume. Upgrade to Agency (4 sites) or White Label (4 sites with branding) when managing multiple clients to reduce per-site costs.
+  - name: Custom Volume Pricing
+    description: For agencies managing large numbers of sites, negotiate a Custom plan with Duda sales to receive tiered discounts per site and unlimited API access.
+  - name: Consolidate eCommerce Tiers
+    description: Evaluate actual product catalog size per site to select the minimum eCommerce tier needed, avoiding over-provisioning on the Elite tier.
+  - name: Track Site Count
+    description: Monitor active site count regularly. Remove or archive unused sites to avoid ongoing charges for idle sites.
+budgeting:
+  notes: >
+    Duda costs are predictable subscription-based fees with no API metering charges on standard plans.
+    Budget for base plan + (number of additional sites x per-site rate) + eCommerce add-ons per site.
+    Factor in 25% savings when committing to annual billing at the start of each fiscal year.
+    Enterprise customers should request volume pricing from Duda sales for portfolios of 10+ sites.
