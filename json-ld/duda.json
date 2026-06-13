@@ -1,0 +1,24 @@
+{
+  "@context": "https://schema.org/",
+  "@type": "Organization",
+  "name": "Duda",
+  "url": "https://www.duda.co",
+  "description": "Duda is a professional website builder platform for agencies, SaaS companies, and web professionals.",
+  "sameAs": [
+    "https://github.com/dudadev",
+    "https://www.linkedin.com/company/duda",
+    "https://twitter.com/buildwithduda"
+  ],
+  "offers": {
+    "@type": "Offer",
+    "name": "Duda Partner API",
+    "description": "REST API for programmatically managing websites, eCommerce, blog posts, and more.",
+    "url": "https://developer.duda.co/docs/partner-api-introduction"
+  },
+  "potentialAction": {
+    "@type": "EntryPoint",
+    "name": "Duda Partner API",
+    "urlTemplate": "https://api.duda.co/api",
+    "httpMethod": ["GET", "POST", "PUT", "DELETE"]
+  }
+}

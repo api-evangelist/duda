@@ -32,7 +32,7 @@ apis:
       - type: Documentation
         url: https://developer.duda.co/docs/partner-api-introduction
       - type: OpenAPI
-        url: https://developer.duda.co/llms.txt
+        url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/openapi/duda-partner-api.json
       - type: Reference
         url: https://developer.duda.co/reference/introduction
       - type: GitHubOrg
