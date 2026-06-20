@@ -1,7 +1,7 @@
 aid: duda
 name: Duda
 description: Duda is a professional website builder platform for agencies, SaaS companies, and web professionals. It provides a REST API for creating and managing websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, and white-label client portal access. The platform is designed for digital agencies to build and manage websites at scale.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -17,7 +17,7 @@ apis:
   - aid: duda:partner-api
     name: Duda Partner API
     description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://developer.duda.co/docs/partner-api-introduction
     baseURL: https://api.duda.co/api
     tags:
