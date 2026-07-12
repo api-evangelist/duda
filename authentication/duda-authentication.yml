@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/duda-partner-api.json
+summary:
+  types:
+  - http
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)
+  sources:
+  - openapi/duda-partner-api.json
