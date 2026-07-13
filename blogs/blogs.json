@@ -2,11 +2,11 @@
   "repo": "duda",
   "feeds": [
     {
-      "source": "https://blog.duda.co/",
+      "source": "https://blog.duda.co/feed/rss2",
       "feed_url": "https://blog.duda.co/feed/rss2",
       "title": "",
-      "saved": 1,
-      "method": "discovered"
+      "saved": 0,
+      "method": "feed"
     },
     {
       "source": "https://www.linkedin.com/company/duda",
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "fetched": "2026-06-27T12:03:07Z",
-  "post_count": 2
+  "fetched": "2026-07-11T11:50:51Z",
+  "post_count": 50
 }
