@@ -46,6 +46,8 @@ apis:
       - type: FinOps
         url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/duda-agentic-access.yml
   - type: DomainSecurity
     url: security/duda-domain-security.yml
   - type: Authentication
