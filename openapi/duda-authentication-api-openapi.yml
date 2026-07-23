@@ -1,0 +1,85 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts Authentication API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Authentication
+  description: SSO and access token management
+paths:
+  /accounts/sso/{account_name}/link:
+    get:
+      operationId: authentication-get-sso-link
+      summary: Get SSO Link
+      description: Generates a link that automatically logs an Account into Duda.
+      tags:
+      - Authentication
+      parameters:
+      - name: account_name
+        in: path
+        required: true
+        description: The account name is a unique reference to the account.
+        schema:
+          type: string
+      - name: site_name
+        in: query
+        description: A valid site name of an existing website.
+        schema:
+          type: string
+      - name: target
+        in: query
+        description: Target destination within Duda editor.
+        schema:
+          type: string
+          enum:
+          - EDITOR
+          - RESET_SITE
+          - SWITCH_TEMPLATE
+          - SWITCH_TEMPLATE_WITH_AI
+          - RESET_BASIC
+          - STORE_MANAGEMENT
+          - SITE_OVERVIEW
+          - STATS
+          - SITE_SEO_OVERVIEW
+          - SWITCH_GENERATE_TEMPLATE_CONTENT
+      responses:
+        '200':
+          description: SSO link generated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

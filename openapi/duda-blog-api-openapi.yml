@@ -1,0 +1,83 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts Blog API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Blog
+  description: Manage site blogs and blog posts
+paths:
+  /sites/multiscreen/{site_name}/blog:
+    post:
+      operationId: blog-create-blog
+      summary: Create Blog
+      description: Creates a blog for a site.
+      tags:
+      - Blog
+      parameters:
+      - name: site_name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                title:
+                  type: string
+                description:
+                  type: string
+      responses:
+        '200':
+          description: Blog created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name:
+                    type: string
+                  title:
+                    type: string
+                  description:
+                    type: string
+                  image:
+                    type: string
+                  image_alt_text:
+                    type: string
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

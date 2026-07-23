@@ -1,0 +1,126 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts Collections API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Collections
+  description: Manage dynamic data collections
+paths:
+  /sites/multiscreen/{site_name}/collection:
+    post:
+      operationId: collections-create-collection
+      summary: Create Collection
+      description: Create a new collection within a site.
+      tags:
+      - Collections
+      parameters:
+      - name: site_name
+        in: path
+        required: true
+        description: A valid site name of an existing website.
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              - fields
+              properties:
+                name:
+                  type: string
+                  description: The name of the collection (must not start with $)
+                fields:
+                  type: array
+                  description: You must define at least one field when creating a collection.
+                  items:
+                    type: object
+                    properties:
+                      name:
+                        type: string
+                      type:
+                        type: string
+                      multi_select_options:
+                        type: array
+                        items:
+                          type: string
+                        default: []
+                customer_lock:
+                  type: string
+                  enum:
+                  - unlocked
+                  - structure_locked
+                  - locked
+                  default: unlocked
+                static_page_bindable:
+                  type: boolean
+                  default: false
+                external_details:
+                  type: object
+                  properties:
+                    enabled:
+                      type: boolean
+                      default: false
+                    external_endpoint:
+                      type: string
+                    external_id:
+                      type: string
+                    authorization_header_value:
+                      type: string
+                    collection_data_json_path:
+                      type: string
+                    page_item_url_field:
+                      type: string
+                    custom_headers:
+                      type: array
+                      items:
+                        type: object
+                        required:
+                        - name
+                        - values
+                        properties:
+                          name:
+                            type: string
+                          values:
+                            type: array
+                            items:
+                              type: string
+                            default: []
+      responses:
+        '204':
+          description: Collection created successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

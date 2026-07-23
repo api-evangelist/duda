@@ -1,0 +1,91 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts Webhooks API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Webhooks
+  description: Subscribe to site and account events
+paths:
+  /sites/multiscreen/webhooks:
+    post:
+      operationId: create-webhook
+      summary: Create Webhook
+      description: Creates a new webhook subscription for site or account events.
+      tags:
+      - Webhooks
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - endpoint
+              - event_types
+              - resource_type
+              properties:
+                endpoint:
+                  type: string
+                  description: The URL endpoint to receive webhook payloads.
+                event_types:
+                  type: array
+                  items:
+                    type: string
+                  description: List of event types to subscribe to.
+                external_id:
+                  type: string
+                resource_id:
+                  type: string
+                resource_type:
+                  type: string
+                  enum:
+                  - SITE
+                  - ACCOUNT
+      responses:
+        '200':
+          description: Webhook created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  active:
+                    type: boolean
+                  endpoint:
+                    type: string
+                  event_types:
+                    type: array
+                    items:
+                      type: string
+                  external_id:
+                    type: string
+                  resource:
+                    type: object
+                    properties:
+                      resourceId:
+                        type: string
+                      type:
+                        type: string
+                        enum:
+                        - SITE
+                        - ACCOUNT
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

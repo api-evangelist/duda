@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts Templates API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Templates
+  description: Manage site templates
+paths:
+  /sites/multiscreen/templates:
+    get:
+      operationId: templates-list-templates
+      summary: List Templates
+      description: Get all available Templates.
+      tags:
+      - Templates
+      parameters:
+      - name: ai_enabled
+        in: query
+        description: Filters by templates which have been set as AI Ready.
+        schema:
+          type: boolean
+      - name: lang
+        in: query
+        description: Retrieve templates for specific languages.
+        schema:
+          type: string
+      - name: has_store
+        in: query
+        description: Returns templates that include a store.
+        schema:
+          type: boolean
+      - name: has_blog
+        in: query
+        description: Returns templates that include a blog.
+        schema:
+          type: boolean
+      - name: store_type
+        in: query
+        description: 'Filter by store type: NATIVE or THIRDPARTY.'
+        schema:
+          type: string
+      - name: editor
+        in: query
+        description: 'Filter by editor type: ADVANCED or ADVANCED-2.0.'
+        schema:
+          type: string
+      - name: type
+        in: query
+        description: 'Filter by template type: DUDA or CUSTOM.'
+        schema:
+          type: string
+      - name: page_count
+        in: query
+        description: Return templates with an exact page count.
+        schema:
+          type: integer
+      - name: page_count.gte
+        in: query
+        description: Return templates with a minimum number of pages.
+        schema:
+          type: integer
+      - name: page_count.lte
+        in: query
+        description: Return templates with a maximum number of pages.
+        schema:
+          type: integer
+      - name: name.contains
+        in: query
+        description: Perform a text-based search within templates.
+        schema:
+          type: string
+      - name: sort
+        in: query
+        description: Choose sorting field. Currently only NAME.
+        schema:
+          type: string
+      - name: direction
+        in: query
+        description: Choose direction of sort. ASC or DESC.
+        schema:
+          type: string
+      - name: categories
+        in: query
+        description: Filters by one or more category labels. Multiple values separated by comma.
+        schema:
+          type: string
+      responses:
+        '200':
+          description: List of templates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

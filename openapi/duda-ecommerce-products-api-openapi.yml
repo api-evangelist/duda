@@ -1,0 +1,272 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts eCommerce - Products API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: eCommerce - Products
+  description: Manage eCommerce products
+paths:
+  /sites/multiscreen/{site_name}/ecommerce/products:
+    get:
+      operationId: ecommerce-list-products
+      summary: List Products
+      description: Get products page. Default page response size is 50, max requested page size is 200.
+      tags:
+      - eCommerce - Products
+      parameters:
+      - name: site_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique identifier for the target site.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        description: Zero-based offset for elements (0..N).
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 50
+        description: The size of the page to be returned (Max 200).
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Sorting criteria.
+      - name: direction
+        in: query
+        schema:
+          type: string
+          default: asc
+        description: asc or desc.
+      responses:
+        '200':
+          description: Paginated list of products
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  offset:
+                    type: integer
+                  limit:
+                    type: integer
+                  total_responses:
+                    type: integer
+                  site_name:
+                    type: string
+                  results:
+                    type: array
+                    items:
+                      type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+    post:
+      operationId: ecommerce-create-product
+      summary: Create Product
+      description: Creates new product for referenced catalog.
+      tags:
+      - eCommerce - Products
+      parameters:
+      - name: site_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique identifier for the target site.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                  - PHYSICAL
+                  - DIGITAL
+                  - SERVICE
+                  - DONATION
+                status:
+                  type: string
+                  enum:
+                  - ACTIVE
+                  - HIDDEN
+                sku:
+                  type: string
+                external_id:
+                  type: string
+                prices:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - price
+                    properties:
+                      price:
+                        type: string
+                        description: Min val = 0
+                      compare_at_price:
+                        type: string
+                images:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                      alt:
+                        type: string
+                quantity:
+                  type: integer
+                  format: int32
+                managed_inventory:
+                  type: boolean
+                  default: false
+                requires_shipping:
+                  type: boolean
+                stock_status:
+                  type: string
+                  enum:
+                  - IN_STOCK
+                  - OUT_OF_STOCK
+                options:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      choices:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                            value:
+                              type: string
+                variations:
+                  type: array
+                  items:
+                    type: object
+                custom_fields:
+                  type: array
+                  items:
+                    type: object
+                seo:
+                  type: object
+                  properties:
+                    title:
+                      type: string
+                    description:
+                      type: string
+                    product_url:
+                      type: string
+      responses:
+        '200':
+          description: Product created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  description:
+                    type: string
+                  type:
+                    type: string
+                  status:
+                    type: string
+                  sku:
+                    type: string
+                  external_id:
+                    type: string
+                  prices:
+                    type: array
+                    items:
+                      type: object
+                  images:
+                    type: array
+                    items:
+                      type: object
+                  quantity:
+                    type: integer
+                  managed_inventory:
+                    type: boolean
+                  requires_shipping:
+                    type: boolean
+                  stock_status:
+                    type: string
+                  options:
+                    type: array
+                    items:
+                      type: object
+                  variations:
+                    type: array
+                    items:
+                      type: object
+                  custom_fields:
+                    type: array
+                    items:
+                      type: object
+                  seo:
+                    type: object
+                  categories:
+                    type: array
+                    items:
+                      type: object
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

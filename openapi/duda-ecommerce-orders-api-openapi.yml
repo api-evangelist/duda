@@ -1,0 +1,89 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts eCommerce - Orders API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: eCommerce - Orders
+  description: Manage eCommerce orders
+paths:
+  /sites/multiscreen/{site_name}/ecommerce/orders:
+    get:
+      operationId: ecommerce-list-orders
+      summary: List Orders
+      description: Get a paginated list of orders for a site.
+      tags:
+      - eCommerce - Orders
+      parameters:
+      - name: site_name
+        in: path
+        required: true
+        schema:
+          type: string
+        description: The unique identifier for the target site.
+      - name: offset
+        in: query
+        schema:
+          type: integer
+          format: int32
+          default: 0
+        description: Zero-based offset for elements (0..N).
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          format: int32
+        description: The size of the page to be returned.
+      - name: sort
+        in: query
+        schema:
+          type: string
+        description: Property used to sort orders.
+      - name: direction
+        in: query
+        schema:
+          type: string
+        description: The sort direction, either asc or desc.
+      responses:
+        '200':
+          description: Paginated list of orders
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  offset:
+                    type: integer
+                  limit:
+                    type: integer
+                  total_responses:
+                    type: integer
+                  results:
+                    type: array
+                    items:
+                      type: object
+        '400':
+          description: Bad request
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not found
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)

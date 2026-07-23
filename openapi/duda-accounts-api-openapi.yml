@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Duda Partner Accounts API
+  version: '1.0'
+  description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
+  contact:
+    name: Duda Developer Documentation
+    url: https://developer.duda.co
+  termsOfService: https://www.duda.co/terms-of-service
+  license:
+    name: Proprietary
+servers:
+- url: https://api.duda.co/api
+  description: Duda Production API
+security:
+- basicAuth: []
+tags:
+- name: Accounts
+  description: Manage partner and customer accounts
+paths:
+  /accounts/create:
+    post:
+      operationId: accounts-create-account
+      summary: Create Account
+      description: Creates a new Account.
+      tags:
+      - Accounts
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - account_name
+              properties:
+                account_name:
+                  type: string
+                  description: Unique account reference. Can be an email address, but does not need to be.
+                account_type:
+                  type: string
+                  default: CUSTOMER
+                  description: CUSTOMER or STAFF
+                company_name:
+                  type: string
+                email:
+                  type: string
+                first_name:
+                  type: string
+                last_name:
+                  type: string
+                lang:
+                  type: string
+      responses:
+        '204':
+          description: Account created successfully
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic Authentication using API user credentials (base64 encoded user:pass)
