@@ -1,7 +1,20 @@
 aid: duda
 name: Duda
 description: Duda is a professional website builder platform for agencies, SaaS companies, and web professionals. It provides a REST API for creating and managing websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, and white-label client portal access. The platform is designed for digital agencies to build and manage websites at scale.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/duda.png
 url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/apis.yml
 created: '2026-06-13'
 modified: '2026-06-13'
@@ -14,37 +27,276 @@ tags:
   - eCommerce
   - CMS
 apis:
-  - aid: duda:partner-api
-    name: Duda Partner API
-    description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://developer.duda.co/docs/partner-api-introduction
-    baseURL: https://api.duda.co/api
-    tags:
-      - Website Builder
-      - Partner API
-      - White Label
-      - Agencies
-      - eCommerce
-      - SSO
-      - Webhooks
-    properties:
-      - type: Documentation
-        url: https://developer.duda.co/docs/partner-api-introduction
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/openapi/duda-partner-api.json
-      - type: Reference
-        url: https://developer.duda.co/reference/introduction
-      - type: GitHubOrg
-        url: https://github.com/dudadev
-      - type: GitHubRepository
-        url: https://github.com/DudaDev/partner-api
-      - type: Plans
-        url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
-      - type: RateLimits
-        url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
-      - type: FinOps
-        url: https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-accounts-api
+  name: Duda Accounts API
+  description: Manage partner and customer accounts
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-authentication-api
+  name: Duda Authentication API
+  description: SSO and access token management
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-authentication-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-blog-api
+  name: Duda Blog API
+  description: Manage site blogs and blog posts
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Blog
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-blog-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-collections-api
+  name: Duda Collections API
+  description: Manage dynamic data collections
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Collections
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-collections-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-ecommerce-orders-api
+  name: Duda eCommerce - Orders API
+  description: Manage eCommerce orders
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - eCommerce - Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-ecommerce-orders-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-ecommerce-products-api
+  name: Duda eCommerce - Products API
+  description: Manage eCommerce products
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - eCommerce - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-ecommerce-products-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-pages-api
+  name: Duda Pages API
+  description: Create and manage site pages
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Pages
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-pages-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-sites-api
+  name: Duda Sites API
+  description: Create, read, update, and delete websites
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-sites-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-templates-api
+  name: Duda Templates API
+  description: Manage site templates
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Templates
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-templates-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
+- aid: duda:duda-webhooks-api
+  name: Duda Webhooks API
+  description: Subscribe to site and account events
+  humanURL: https://developer.duda.co/docs/partner-api-introduction
+  baseURL: https://api.duda.co/api
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/duda-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://developer.duda.co/docs/partner-api-introduction
+  - type: Reference
+    url: https://developer.duda.co/reference/introduction
+  - type: GitHubOrg
+    url: https://github.com/dudadev
+  - type: GitHubRepository
+    url: https://github.com/DudaDev/partner-api
+  - type: Plans
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/plans/duda-plans-pricing.yml
+  - type: RateLimits
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/rate-limits/duda-rate-limits.yml
+  - type: FinOps
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
 common:
   - type: AgenticAccess
     url: agentic-access/duda-agentic-access.yml
