@@ -1,0 +1,32 @@
+{
+  "provider": "duda",
+  "sources": [
+    "duda-accounts-api-openapi.yml",
+    "duda-authentication-api-openapi.yml",
+    "duda-blog-api-openapi.yml",
+    "duda-collections-api-openapi.yml",
+    "duda-ecommerce-orders-api-openapi.yml",
+    "duda-ecommerce-products-api-openapi.yml",
+    "duda-pages-api-openapi.yml",
+    "duda-sites-api-openapi.yml",
+    "duda-templates-api-openapi.yml",
+    "duda-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "duda-accounts-api-openapi.yml",
+    "duda-authentication-api-openapi.yml",
+    "duda-blog-api-openapi.yml",
+    "duda-collections-api-openapi.yml",
+    "duda-ecommerce-orders-api-openapi.yml",
+    "duda-ecommerce-products-api-openapi.yml",
+    "duda-pages-api-openapi.yml",
+    "duda-sites-api-openapi.yml",
+    "duda-templates-api-openapi.yml",
+    "duda-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

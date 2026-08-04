@@ -1,0 +1,1123 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Duda Partner API",
+    "version": "1.0",
+    "description": "The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.",
+    "contact": {
+      "name": "Duda Developer Documentation",
+      "url": "https://developer.duda.co"
+    },
+    "termsOfService": "https://www.duda.co/terms-of-service",
+    "license": {
+      "name": "Proprietary"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.duda.co/api",
+      "description": "Duda Production API"
+    }
+  ],
+  "security": [
+    {
+      "basicAuth": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "basicAuth": {
+        "type": "http",
+        "scheme": "basic",
+        "description": "HTTP Basic Authentication using API user credentials (base64 encoded user:pass)"
+      }
+    },
+    "schemas": {
+      "SiteData": {
+        "type": "object",
+        "properties": {
+          "site_name": {
+            "type": "string",
+            "description": "Unique identifier for the site within Duda"
+          },
+          "account_name": {
+            "type": "string",
+            "description": "The account that owns or is associated with the site"
+          },
+          "external_uid": {
+            "type": "string",
+            "description": "External reference ID set by the partner"
+          },
+          "site_domain": {
+            "type": "string",
+            "description": "Custom domain for the site"
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code for the site"
+          },
+          "additionalLanguages": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "google_tracking_id": { "type": "string" },
+          "googletagmanager_container_id": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Max of three IDs"
+          },
+          "template_id": { "type": "integer" },
+          "site_default_domain": { "type": "string" },
+          "preview_site_url": { "type": "string" },
+          "overview_site_url": { "type": "string" },
+          "editor_site_url": { "type": "string" },
+          "last_published_date": { "type": "string", "format": "date-time" },
+          "first_published_date": { "type": "string", "format": "date-time" },
+          "modification_date": { "type": "string", "format": "date-time" },
+          "creation_date": { "type": "string", "format": "date-time" },
+          "publish_status": {
+            "type": "string",
+            "enum": ["PUBLISHED", "UNPUBLISHED", "NOT_PUBLISHED_YET"]
+          },
+          "force_https": { "type": "boolean" },
+          "thumbnail_url": { "type": "string" },
+          "canonical_url": { "type": "string" },
+          "store_status": { "type": "string" },
+          "store_type": { "type": "string", "enum": ["NATIVE", "THIRDPARTY"] },
+          "editor": { "type": "string", "enum": ["ADVANCED", "ADVANCED-2.0"] },
+          "fav_icon": { "type": "string" },
+          "certificate_status": { "type": "string" },
+          "last_reset_by": { "type": "string" },
+          "site_business_info": {
+            "type": "object",
+            "properties": {
+              "business_name": { "type": "string" },
+              "email": { "type": "string" },
+              "phone_number": { "type": "string" },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "street": { "type": "string" },
+                  "city": { "type": "string" },
+                  "state": { "type": "string" },
+                  "country": { "type": "string" },
+                  "zip_code": { "type": "string" }
+                }
+              }
+            }
+          },
+          "site_alternate_domains": {
+            "type": "object",
+            "properties": {
+              "domains": {
+                "type": "array",
+                "items": { "type": "string" },
+                "description": "Array of valid domain names. Max 10."
+              },
+              "is_redirect": { "type": "boolean" }
+            }
+          },
+          "site_seo": {
+            "type": "object",
+            "properties": {
+              "og_image": { "type": "string" },
+              "title": { "type": "string" },
+              "description": { "type": "string" },
+              "no_index": { "type": "boolean" }
+            }
+          },
+          "labels": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": { "type": "string" }
+              }
+            }
+          },
+          "content_collection_form": {
+            "type": "object",
+            "properties": {
+              "url": { "type": "string" },
+              "url_expiration_date": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error_code": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      },
+      "PaginatedResponse": {
+        "type": "object",
+        "properties": {
+          "offset": { "type": "integer" },
+          "limit": { "type": "integer" },
+          "total_responses": { "type": "integer" }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/sites/multiscreen/create": {
+      "post": {
+        "operationId": "sites-create-site",
+        "summary": "Create Site",
+        "description": "Create a new Site from a Template.",
+        "tags": ["Sites"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["template_alias"],
+                "properties": {
+                  "template_alias": {
+                    "type": "string",
+                    "description": "Required if template_id is not provided. The unique alias of the template to use for the site."
+                  },
+                  "template_id": {
+                    "type": "integer",
+                    "description": "The ID of the template. This field is being replaced by template_alias."
+                  },
+                  "lang": { "type": "string" },
+                  "default_domain_prefix": {
+                    "type": "string",
+                    "description": "Must be between 4-44 characters long."
+                  },
+                  "labels": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": { "name": { "type": "string" } }
+                    }
+                  },
+                  "site_data": {
+                    "type": "object",
+                    "properties": {
+                      "external_uid": { "type": "string" },
+                      "google_tracking_id": { "type": "string" },
+                      "googletagmanager_container_id": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Max of three IDs"
+                      },
+                      "site_domain": { "type": "string" },
+                      "site_alternate_domains": {
+                        "type": "object",
+                        "properties": {
+                          "domains": {
+                            "type": "array",
+                            "items": { "type": "string" },
+                            "description": "Array of valid domain names. Max 10."
+                          },
+                          "is_redirect": { "type": "boolean" }
+                        }
+                      },
+                      "site_business_info": {
+                        "type": "object",
+                        "properties": {
+                          "business_name": { "type": "string" },
+                          "email": { "type": "string" },
+                          "phone_number": { "type": "string" },
+                          "address": {
+                            "type": "object",
+                            "properties": {
+                              "street": { "type": "string" },
+                              "city": { "type": "string" },
+                              "state": { "type": "string" },
+                              "country": { "type": "string" },
+                              "zip_code": { "type": "string" }
+                            }
+                          }
+                        }
+                      },
+                      "site_seo": {
+                        "type": "object",
+                        "properties": {
+                          "description": { "type": "string" },
+                          "og_image": { "type": "string" },
+                          "title": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Site created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "site_name": { "type": "string", "example": "28e1182c" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}": {
+      "get": {
+        "operationId": "sites-get-site",
+        "summary": "Get Site",
+        "description": "Get the details of a site by name.",
+        "tags": ["Sites"],
+        "parameters": [
+          {
+            "name": "site_name",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the target site.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Site details",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/SiteData" }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "operationId": "sites-delete-site",
+        "summary": "Delete Site",
+        "description": "Permanently delete a site and all associated data.",
+        "tags": ["Sites"],
+        "parameters": [
+          {
+            "name": "site_name",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the target site.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "204": { "description": "Site deleted successfully" },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen": {
+      "get": {
+        "operationId": "sites-list-sites",
+        "summary": "List Sites",
+        "description": "Get a paginated list of all sites in the partner account.",
+        "tags": ["Sites"],
+        "parameters": [
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Zero-based offset for elements (0..N).",
+            "schema": { "type": "integer", "format": "int32", "default": 0 }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "The size of the page to be returned (Max 100).",
+            "schema": { "type": "integer", "format": "int32", "default": 75 }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "One of CREATION_DATE or LAST_PUBLICATION_DATE.",
+            "schema": { "type": "string", "default": "CREATION_DATE" }
+          },
+          {
+            "name": "direction",
+            "in": "query",
+            "description": "Sort direction. One of ASC or DESC.",
+            "schema": { "type": "string", "default": "DESC" }
+          },
+          {
+            "name": "publish_status",
+            "in": "query",
+            "description": "Filter by publication status. One of PUBLISHED, UNPUBLISHED or NOT_PUBLISHED_YET.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "label_names",
+            "in": "query",
+            "description": "Filter by site labels. Multiple values can be passed as a comma separated list.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "last_published_date.gte",
+            "in": "query",
+            "description": "Filter by sites published after specified date e.g., 2016-07-09T22:33:44.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "last_published_date.lte",
+            "in": "query",
+            "description": "Filter by sites published before specified date.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "creation_date.gte",
+            "in": "query",
+            "description": "Filter by sites created after specified date.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "creation_date.lte",
+            "in": "query",
+            "description": "Filter by sites created before specified date.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of sites",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "allOf": [
+                    { "$ref": "#/components/schemas/PaginatedResponse" },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "results": {
+                          "type": "array",
+                          "items": { "$ref": "#/components/schemas/SiteData" }
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen/update/{site_name}": {
+      "post": {
+        "operationId": "sites-update-site",
+        "summary": "Update Site",
+        "description": "Update properties of an existing Site.",
+        "tags": ["Sites"],
+        "parameters": [
+          {
+            "name": "site_name",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the target site.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "additionalLanguages": { "type": "array", "items": { "type": "string" } },
+                  "default_domain_prefix": { "type": "string", "description": "Must be between 4-44 characters long." },
+                  "external_uid": { "type": "string" },
+                  "fav_icon": { "type": "string" },
+                  "force_https": { "type": "boolean" },
+                  "google_tracking_id": { "type": "string" },
+                  "googletagmanager_container_id": { "type": "array", "items": { "type": "string" }, "description": "Max of three IDs." },
+                  "labels": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" } } } },
+                  "lang": { "type": "string" },
+                  "schemas": {
+                    "type": "object",
+                    "properties": {
+                      "local_business": { "type": "object", "properties": { "enabled": { "type": "boolean" } } }
+                    }
+                  },
+                  "site_alternate_domains": {
+                    "type": "object",
+                    "properties": {
+                      "domains": { "type": "array", "items": { "type": "string" }, "description": "Array of valid domain names. Max 10." },
+                      "is_redirect": { "type": "boolean" }
+                    }
+                  },
+                  "site_domain": { "type": "string" },
+                  "site_seo": {
+                    "type": "object",
+                    "properties": {
+                      "description": { "type": "string" },
+                      "og_image": { "type": "string" },
+                      "title": { "type": "string" },
+                      "no_index": { "type": "boolean" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": { "description": "Site updated successfully" },
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/ErrorResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen/templates": {
+      "get": {
+        "operationId": "templates-list-templates",
+        "summary": "List Templates",
+        "description": "Get all available Templates.",
+        "tags": ["Templates"],
+        "parameters": [
+          { "name": "ai_enabled", "in": "query", "description": "Filters by templates which have been set as AI Ready.", "schema": { "type": "boolean" } },
+          { "name": "lang", "in": "query", "description": "Retrieve templates for specific languages.", "schema": { "type": "string" } },
+          { "name": "has_store", "in": "query", "description": "Returns templates that include a store.", "schema": { "type": "boolean" } },
+          { "name": "has_blog", "in": "query", "description": "Returns templates that include a blog.", "schema": { "type": "boolean" } },
+          { "name": "store_type", "in": "query", "description": "Filter by store type: NATIVE or THIRDPARTY.", "schema": { "type": "string" } },
+          { "name": "editor", "in": "query", "description": "Filter by editor type: ADVANCED or ADVANCED-2.0.", "schema": { "type": "string" } },
+          { "name": "type", "in": "query", "description": "Filter by template type: DUDA or CUSTOM.", "schema": { "type": "string" } },
+          { "name": "page_count", "in": "query", "description": "Return templates with an exact page count.", "schema": { "type": "integer" } },
+          { "name": "page_count.gte", "in": "query", "description": "Return templates with a minimum number of pages.", "schema": { "type": "integer" } },
+          { "name": "page_count.lte", "in": "query", "description": "Return templates with a maximum number of pages.", "schema": { "type": "integer" } },
+          { "name": "name.contains", "in": "query", "description": "Perform a text-based search within templates.", "schema": { "type": "string" } },
+          { "name": "sort", "in": "query", "description": "Choose sorting field. Currently only NAME.", "schema": { "type": "string" } },
+          { "name": "direction", "in": "query", "description": "Choose direction of sort. ASC or DESC.", "schema": { "type": "string" } },
+          { "name": "categories", "in": "query", "description": "Filters by one or more category labels. Multiple values separated by comma.", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of templates",
+            "content": { "application/json": { "schema": { "type": "array", "items": { "type": "object" } } } }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}/pages": {
+      "get": {
+        "operationId": "pages-v2-list-pages",
+        "summary": "List Pages",
+        "description": "Get details of all the Pages of a Site.",
+        "tags": ["Pages"],
+        "parameters": [
+          {
+            "name": "site_name",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the target Site.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "List of pages",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "uuid": { "type": "string" },
+                          "title": { "type": "string" },
+                          "path": { "type": "string" },
+                          "type": { "type": "string" },
+                          "draft_status": { "type": "string" },
+                          "header_html": { "type": "string" },
+                          "seo": {
+                            "type": "object",
+                            "properties": {
+                              "title": { "type": "string" },
+                              "description": { "type": "string" },
+                              "no_index": { "type": "boolean" },
+                              "og_image": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } }
+          }
+        }
+      },
+      "post": {
+        "operationId": "pages-v2-create-page",
+        "summary": "Create Page",
+        "description": "Creates a new Page on a site.",
+        "tags": ["Pages"],
+        "parameters": [
+          {
+            "name": "site_name",
+            "in": "path",
+            "required": true,
+            "description": "The unique identifier of the target Site.",
+            "schema": { "type": "string" }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["page"],
+                "properties": {
+                  "page": {
+                    "type": "object",
+                    "required": ["title", "path"],
+                    "properties": {
+                      "title": { "type": "string" },
+                      "path": { "type": "string", "description": "Do not include the beginning slash." },
+                      "draft_status": { "type": "string", "enum": ["DRAFT", "STAGED_DRAFT"], "default": "STAGED_DRAFT" },
+                      "header_html": { "type": "string" },
+                      "seo": {
+                        "type": "object",
+                        "properties": {
+                          "title": { "type": "string" },
+                          "description": { "type": "string" },
+                          "no_index": { "type": "boolean", "default": false },
+                          "og_image": { "type": "string" }
+                        }
+                      }
+                    }
+                  },
+                  "type": { "type": "string", "enum": ["REGULAR", "DYNAMIC"], "default": "REGULAR" },
+                  "collection": {
+                    "type": "object",
+                    "properties": { "name": { "type": "string", "description": "Required when type is DYNAMIC" } }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Page created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "uuid": { "type": "string" },
+                    "page": { "type": "object" },
+                    "type": { "type": "string" },
+                    "collection": { "type": "object" }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } }
+          }
+        }
+      }
+    },
+    "/accounts/create": {
+      "post": {
+        "operationId": "accounts-create-account",
+        "summary": "Create Account",
+        "description": "Creates a new Account.",
+        "tags": ["Accounts"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["account_name"],
+                "properties": {
+                  "account_name": { "type": "string", "description": "Unique account reference. Can be an email address, but does not need to be." },
+                  "account_type": { "type": "string", "default": "CUSTOMER", "description": "CUSTOMER or STAFF" },
+                  "company_name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "first_name": { "type": "string" },
+                  "last_name": { "type": "string" },
+                  "lang": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": { "description": "Account created successfully" },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      }
+    },
+    "/accounts/sso/{account_name}/link": {
+      "get": {
+        "operationId": "authentication-get-sso-link",
+        "summary": "Get SSO Link",
+        "description": "Generates a link that automatically logs an Account into Duda.",
+        "tags": ["Authentication"],
+        "parameters": [
+          {
+            "name": "account_name",
+            "in": "path",
+            "required": true,
+            "description": "The account name is a unique reference to the account.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "site_name",
+            "in": "query",
+            "description": "A valid site name of an existing website.",
+            "schema": { "type": "string" }
+          },
+          {
+            "name": "target",
+            "in": "query",
+            "description": "Target destination within Duda editor.",
+            "schema": {
+              "type": "string",
+              "enum": ["EDITOR", "RESET_SITE", "SWITCH_TEMPLATE", "SWITCH_TEMPLATE_WITH_AI", "RESET_BASIC", "STORE_MANAGEMENT", "SITE_OVERVIEW", "STATS", "SITE_SEO_OVERVIEW", "SWITCH_GENERATE_TEMPLATE_CONTENT"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "SSO link generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": { "url": { "type": "string" } }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      }
+    },
+    "/sites/multiscreen/webhooks": {
+      "post": {
+        "operationId": "create-webhook",
+        "summary": "Create Webhook",
+        "description": "Creates a new webhook subscription for site or account events.",
+        "tags": ["Webhooks"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["endpoint", "event_types", "resource_type"],
+                "properties": {
+                  "endpoint": { "type": "string", "description": "The URL endpoint to receive webhook payloads." },
+                  "event_types": { "type": "array", "items": { "type": "string" }, "description": "List of event types to subscribe to." },
+                  "external_id": { "type": "string" },
+                  "resource_id": { "type": "string" },
+                  "resource_type": { "type": "string", "enum": ["SITE", "ACCOUNT"] }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Webhook created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "integer" },
+                    "active": { "type": "boolean" },
+                    "endpoint": { "type": "string" },
+                    "event_types": { "type": "array", "items": { "type": "string" } },
+                    "external_id": { "type": "string" },
+                    "resource": {
+                      "type": "object",
+                      "properties": {
+                        "resourceId": { "type": "string" },
+                        "type": { "type": "string", "enum": ["SITE", "ACCOUNT"] }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}/ecommerce/products": {
+      "get": {
+        "operationId": "ecommerce-list-products",
+        "summary": "List Products",
+        "description": "Get products page. Default page response size is 50, max requested page size is 200.",
+        "tags": ["eCommerce - Products"],
+        "parameters": [
+          { "name": "site_name", "in": "path", "required": true, "schema": { "type": "string" }, "description": "The unique identifier for the target site." },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "format": "int32", "default": 0 }, "description": "Zero-based offset for elements (0..N)." },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "format": "int32", "default": 50 }, "description": "The size of the page to be returned (Max 200)." },
+          { "name": "sort", "in": "query", "schema": { "type": "string" }, "description": "Sorting criteria." },
+          { "name": "direction", "in": "query", "schema": { "type": "string", "default": "asc" }, "description": "asc or desc." }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of products",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "offset": { "type": "integer" },
+                    "limit": { "type": "integer" },
+                    "total_responses": { "type": "integer" },
+                    "site_name": { "type": "string" },
+                    "results": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      },
+      "post": {
+        "operationId": "ecommerce-create-product",
+        "summary": "Create Product",
+        "description": "Creates new product for referenced catalog.",
+        "tags": ["eCommerce - Products"],
+        "parameters": [
+          { "name": "site_name", "in": "path", "required": true, "schema": { "type": "string" }, "description": "The unique identifier for the target site." }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": { "type": "string" },
+                  "description": { "type": "string" },
+                  "type": { "type": "string", "enum": ["PHYSICAL", "DIGITAL", "SERVICE", "DONATION"] },
+                  "status": { "type": "string", "enum": ["ACTIVE", "HIDDEN"] },
+                  "sku": { "type": "string" },
+                  "external_id": { "type": "string" },
+                  "prices": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "required": ["price"],
+                      "properties": {
+                        "price": { "type": "string", "description": "Min val = 0" },
+                        "compare_at_price": { "type": "string" }
+                      }
+                    }
+                  },
+                  "images": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "url": { "type": "string" },
+                        "alt": { "type": "string" }
+                      }
+                    }
+                  },
+                  "quantity": { "type": "integer", "format": "int32" },
+                  "managed_inventory": { "type": "boolean", "default": false },
+                  "requires_shipping": { "type": "boolean" },
+                  "stock_status": { "type": "string", "enum": ["IN_STOCK", "OUT_OF_STOCK"] },
+                  "options": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": { "type": "string" },
+                        "name": { "type": "string" },
+                        "choices": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": { "type": "string" },
+                              "value": { "type": "string" }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "variations": { "type": "array", "items": { "type": "object" } },
+                  "custom_fields": { "type": "array", "items": { "type": "object" } },
+                  "seo": {
+                    "type": "object",
+                    "properties": {
+                      "title": { "type": "string" },
+                      "description": { "type": "string" },
+                      "product_url": { "type": "string" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Product created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": { "type": "string" },
+                    "name": { "type": "string" },
+                    "description": { "type": "string" },
+                    "type": { "type": "string" },
+                    "status": { "type": "string" },
+                    "sku": { "type": "string" },
+                    "external_id": { "type": "string" },
+                    "prices": { "type": "array", "items": { "type": "object" } },
+                    "images": { "type": "array", "items": { "type": "object" } },
+                    "quantity": { "type": "integer" },
+                    "managed_inventory": { "type": "boolean" },
+                    "requires_shipping": { "type": "boolean" },
+                    "stock_status": { "type": "string" },
+                    "options": { "type": "array", "items": { "type": "object" } },
+                    "variations": { "type": "array", "items": { "type": "object" } },
+                    "custom_fields": { "type": "array", "items": { "type": "object" } },
+                    "seo": { "type": "object" },
+                    "categories": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}/ecommerce/orders": {
+      "get": {
+        "operationId": "ecommerce-list-orders",
+        "summary": "List Orders",
+        "description": "Get a paginated list of orders for a site.",
+        "tags": ["eCommerce - Orders"],
+        "parameters": [
+          { "name": "site_name", "in": "path", "required": true, "schema": { "type": "string" }, "description": "The unique identifier for the target site." },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "format": "int32", "default": 0 }, "description": "Zero-based offset for elements (0..N)." },
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "format": "int32" }, "description": "The size of the page to be returned." },
+          { "name": "sort", "in": "query", "schema": { "type": "string" }, "description": "Property used to sort orders." },
+          { "name": "direction", "in": "query", "schema": { "type": "string" }, "description": "The sort direction, either asc or desc." }
+        ],
+        "responses": {
+          "200": {
+            "description": "Paginated list of orders",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "offset": { "type": "integer" },
+                    "limit": { "type": "integer" },
+                    "total_responses": { "type": "integer" },
+                    "results": { "type": "array", "items": { "type": "object" } }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request" },
+          "401": { "description": "Unauthorized" },
+          "403": { "description": "Forbidden" },
+          "404": { "description": "Not found" }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}/blog": {
+      "post": {
+        "operationId": "blog-create-blog",
+        "summary": "Create Blog",
+        "description": "Creates a blog for a site.",
+        "tags": ["Blog"],
+        "parameters": [
+          { "name": "site_name", "in": "path", "required": true, "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "title": { "type": "string" },
+                  "description": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Blog created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": { "type": "string" },
+                    "title": { "type": "string" },
+                    "description": { "type": "string" },
+                    "image": { "type": "string" },
+                    "image_alt_text": { "type": "string" }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      }
+    },
+    "/sites/multiscreen/{site_name}/collection": {
+      "post": {
+        "operationId": "collections-create-collection",
+        "summary": "Create Collection",
+        "description": "Create a new collection within a site.",
+        "tags": ["Collections"],
+        "parameters": [
+          { "name": "site_name", "in": "path", "required": true, "description": "A valid site name of an existing website.", "schema": { "type": "string" } }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name", "fields"],
+                "properties": {
+                  "name": { "type": "string", "description": "The name of the collection (must not start with $)" },
+                  "fields": {
+                    "type": "array",
+                    "description": "You must define at least one field when creating a collection.",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": { "type": "string" },
+                        "type": { "type": "string" },
+                        "multi_select_options": { "type": "array", "items": { "type": "string" }, "default": [] }
+                      }
+                    }
+                  },
+                  "customer_lock": {
+                    "type": "string",
+                    "enum": ["unlocked", "structure_locked", "locked"],
+                    "default": "unlocked"
+                  },
+                  "static_page_bindable": { "type": "boolean", "default": false },
+                  "external_details": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": { "type": "boolean", "default": false },
+                      "external_endpoint": { "type": "string" },
+                      "external_id": { "type": "string" },
+                      "authorization_header_value": { "type": "string" },
+                      "collection_data_json_path": { "type": "string" },
+                      "page_item_url_field": { "type": "string" },
+                      "custom_headers": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "required": ["name", "values"],
+                          "properties": {
+                            "name": { "type": "string" },
+                            "values": { "type": "array", "items": { "type": "string" }, "default": [] }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": { "description": "Collection created successfully" },
+          "400": { "description": "Bad request", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ErrorResponse" } } } }
+        }
+      }
+    }
+  },
+  "tags": [
+    { "name": "Sites", "description": "Create, read, update, and delete websites" },
+    { "name": "Templates", "description": "Manage site templates" },
+    { "name": "Pages", "description": "Create and manage site pages" },
+    { "name": "Accounts", "description": "Manage partner and customer accounts" },
+    { "name": "Authentication", "description": "SSO and access token management" },
+    { "name": "Webhooks", "description": "Subscribe to site and account events" },
+    { "name": "eCommerce - Products", "description": "Manage eCommerce products" },
+    { "name": "eCommerce - Orders", "description": "Manage eCommerce orders" },
+    { "name": "Blog", "description": "Manage site blogs and blog posts" },
+    { "name": "Collections", "description": "Manage dynamic data collections" }
+  ]
+}
