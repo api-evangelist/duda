@@ -298,6 +298,13 @@ apis:
     url: >-
       https://raw.githubusercontent.com/api-evangelist/duda/refs/heads/main/finops/duda-finops.yml
 common:
+  - type: IssueTracker
+    url: https://github.com/DudaDev/partner-api/issues
+  - type: Releases
+    url: https://github.com/DudaDev/partner-api/releases
+  - type: License
+    name: MIT
+    url: https://github.com/DudaDev/partner-api/blob/main/LICENSE
   - type: AgenticAccess
     url: agentic-access/duda-agentic-access.yml
   - type: DomainSecurity
