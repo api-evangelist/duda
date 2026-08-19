@@ -1,0 +1,122 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts Templates API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Templates",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen/templates",
+            "params": [
+              {
+                "name": "ai_enabled",
+                "value": "",
+                "type": "query",
+                "description": "Filters by templates which have been set as AI Ready."
+              },
+              {
+                "name": "lang",
+                "value": "",
+                "type": "query",
+                "description": "Retrieve templates for specific languages."
+              },
+              {
+                "name": "has_store",
+                "value": "",
+                "type": "query",
+                "description": "Returns templates that include a store."
+              },
+              {
+                "name": "has_blog",
+                "value": "",
+                "type": "query",
+                "description": "Returns templates that include a blog."
+              },
+              {
+                "name": "store_type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by store type: NATIVE or THIRDPARTY."
+              },
+              {
+                "name": "editor",
+                "value": "",
+                "type": "query",
+                "description": "Filter by editor type: ADVANCED or ADVANCED-2.0."
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query",
+                "description": "Filter by template type: DUDA or CUSTOM."
+              },
+              {
+                "name": "page_count",
+                "value": "",
+                "type": "query",
+                "description": "Return templates with an exact page count."
+              },
+              {
+                "name": "page_count.gte",
+                "value": "",
+                "type": "query",
+                "description": "Return templates with a minimum number of pages."
+              },
+              {
+                "name": "page_count.lte",
+                "value": "",
+                "type": "query",
+                "description": "Return templates with a maximum number of pages."
+              },
+              {
+                "name": "name.contains",
+                "value": "",
+                "type": "query",
+                "description": "Perform a text-based search within templates."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Choose sorting field. Currently only NAME."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Choose direction of sort. ASC or DESC."
+              },
+              {
+                "name": "categories",
+                "value": "",
+                "type": "query",
+                "description": "Filters by one or more category labels. Multiple values separated by comma."
+              }
+            ]
+          },
+          "docs": "Get all available Templates."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

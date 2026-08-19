@@ -1,0 +1,224 @@
+{
+  "item": [
+    {
+      "id": "8b308599-3b5a-40d3-a3a3-92ee228b7de7",
+      "name": "Collections",
+      "description": {
+        "content": "Manage dynamic data collections",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0518b746-729c-4b0b-a284-ccc2d58b6f64",
+          "name": "Create Collection",
+          "request": {
+            "name": "Create Collection",
+            "description": {
+              "content": "Create a new collection within a site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                ":site_name",
+                "collection"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) A valid site name of an existing website."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"customer_lock\": \"unlocked\",\n  \"static_page_bindable\": false,\n  \"external_details\": {\n    \"enabled\": false,\n    \"external_endpoint\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"authorization_header_value\": \"<string>\",\n    \"collection_data_json_path\": \"<string>\",\n    \"page_item_url_field\": \"<string>\",\n    \"custom_headers\": [\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      },\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "32dc66b0-94b7-43ae-981e-dd4c8e532cc1",
+              "name": "Collection created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) A valid site name of an existing website."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"customer_lock\": \"unlocked\",\n  \"static_page_bindable\": false,\n  \"external_details\": {\n    \"enabled\": false,\n    \"external_endpoint\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"authorization_header_value\": \"<string>\",\n    \"collection_data_json_path\": \"<string>\",\n    \"page_item_url_field\": \"<string>\",\n    \"custom_headers\": [\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      },\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7d55ba1d-e820-417d-bbb1-85ea049a3602",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "collection"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) A valid site name of an existing website."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"fields\": [\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"type\": \"<string>\"\n    }\n  ],\n  \"customer_lock\": \"unlocked\",\n  \"static_page_bindable\": false,\n  \"external_details\": {\n    \"enabled\": false,\n    \"external_endpoint\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"authorization_header_value\": \"<string>\",\n    \"collection_data_json_path\": \"<string>\",\n    \"page_item_url_field\": \"<string>\",\n    \"custom_headers\": [\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      },\n      {\n        \"name\": \"<string>\",\n        \"values\": []\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.duda.co/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "fc88da91-7349-41d3-81df-761ab360a27a",
+    "name": "Duda Partner Accounts Collections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.\n\nContact Support:\n Name: Duda Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

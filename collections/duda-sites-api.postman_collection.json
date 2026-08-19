@@ -1,0 +1,945 @@
+{
+  "item": [
+    {
+      "id": "2d6831b4-6a4c-4d1b-b648-b940614d4dc3",
+      "name": "Sites",
+      "description": {
+        "content": "Create, read, update, and delete websites",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "64e4ad93-ed3e-46cd-9012-80fc8e154009",
+          "name": "Create Site",
+          "request": {
+            "name": "Create Site",
+            "description": {
+              "content": "Create a new Site from a Template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                "create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"template_alias\": \"<string>\",\n  \"template_id\": \"<integer>\",\n  \"lang\": \"<string>\",\n  \"default_domain_prefix\": \"<string>\",\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"site_data\": {\n    \"external_uid\": \"<string>\",\n    \"google_tracking_id\": \"<string>\",\n    \"googletagmanager_container_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site_domain\": \"<string>\",\n    \"site_alternate_domains\": {\n      \"domains\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"is_redirect\": \"<boolean>\"\n    },\n    \"site_business_info\": {\n      \"business_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"address\": {\n        \"street\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"zip_code\": \"<string>\"\n      }\n    },\n    \"site_seo\": {\n      \"description\": \"<string>\",\n      \"og_image\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0add7481-7a27-4fea-97ec-c9c22e4bf958",
+              "name": "Site created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_alias\": \"<string>\",\n  \"template_id\": \"<integer>\",\n  \"lang\": \"<string>\",\n  \"default_domain_prefix\": \"<string>\",\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"site_data\": {\n    \"external_uid\": \"<string>\",\n    \"google_tracking_id\": \"<string>\",\n    \"googletagmanager_container_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site_domain\": \"<string>\",\n    \"site_alternate_domains\": {\n      \"domains\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"is_redirect\": \"<boolean>\"\n    },\n    \"site_business_info\": {\n      \"business_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"address\": {\n        \"street\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"zip_code\": \"<string>\"\n      }\n    },\n    \"site_seo\": {\n      \"description\": \"<string>\",\n      \"og_image\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site_name\": \"28e1182c\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "447097f2-a946-437a-96b7-516983c27425",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"template_alias\": \"<string>\",\n  \"template_id\": \"<integer>\",\n  \"lang\": \"<string>\",\n  \"default_domain_prefix\": \"<string>\",\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"site_data\": {\n    \"external_uid\": \"<string>\",\n    \"google_tracking_id\": \"<string>\",\n    \"googletagmanager_container_id\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"site_domain\": \"<string>\",\n    \"site_alternate_domains\": {\n      \"domains\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"is_redirect\": \"<boolean>\"\n    },\n    \"site_business_info\": {\n      \"business_name\": \"<string>\",\n      \"email\": \"<string>\",\n      \"phone_number\": \"<string>\",\n      \"address\": {\n        \"street\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"country\": \"<string>\",\n        \"zip_code\": \"<string>\"\n      }\n    },\n    \"site_seo\": {\n      \"description\": \"<string>\",\n      \"og_image\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0586499d-e040-4d8f-a183-b82a5aac4496",
+          "name": "Get Site",
+          "request": {
+            "name": "Get Site",
+            "description": {
+              "content": "Get the details of a site by name.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                ":site_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) The unique identifier of the target site."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "997b0c31-6de8-436c-a6dd-f9b467762d9e",
+              "name": "Site details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"site_name\": \"string\",\n  \"account_name\": \"string\",\n  \"external_uid\": \"string\",\n  \"site_domain\": \"string\",\n  \"lang\": \"string\",\n  \"additionalLanguages\": [\n    \"string\",\n    \"string\"\n  ],\n  \"google_tracking_id\": \"string\",\n  \"googletagmanager_container_id\": [\n    \"string\",\n    \"string\"\n  ],\n  \"template_id\": 6059,\n  \"site_default_domain\": \"string\",\n  \"preview_site_url\": \"string\",\n  \"overview_site_url\": \"string\",\n  \"editor_site_url\": \"string\",\n  \"last_published_date\": \"2005-08-09T23:55:53.417Z\",\n  \"first_published_date\": \"2024-03-01T21:42:43.528Z\",\n  \"modification_date\": \"1974-10-23T06:37:41.149Z\",\n  \"creation_date\": \"1987-06-07T10:18:00.795Z\",\n  \"publish_status\": \"UNPUBLISHED\",\n  \"force_https\": false,\n  \"thumbnail_url\": \"string\",\n  \"canonical_url\": \"string\",\n  \"store_status\": \"string\",\n  \"store_type\": \"THIRDPARTY\",\n  \"editor\": \"ADVANCED-2.0\",\n  \"fav_icon\": \"string\",\n  \"certificate_status\": \"string\",\n  \"last_reset_by\": \"string\",\n  \"site_business_info\": {\n    \"business_name\": \"string\",\n    \"email\": \"string\",\n    \"phone_number\": \"string\",\n    \"address\": {\n      \"street\": \"string\",\n      \"city\": \"string\",\n      \"state\": \"string\",\n      \"country\": \"string\",\n      \"zip_code\": \"string\"\n    }\n  },\n  \"site_alternate_domains\": {\n    \"domains\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_redirect\": false\n  },\n  \"site_seo\": {\n    \"og_image\": \"string\",\n    \"title\": \"string\",\n    \"description\": \"string\",\n    \"no_index\": false\n  },\n  \"labels\": [\n    {\n      \"name\": \"string\"\n    },\n    {\n      \"name\": \"string\"\n    }\n  ],\n  \"content_collection_form\": {\n    \"url\": \"string\",\n    \"url_expiration_date\": \"2019-02-28T12:14:22.522Z\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "04539cb7-39c3-4f16-b0ab-5a64d0788d84",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "fead597d-8c22-4901-8369-4e2f0613a91a",
+          "name": "Delete Site",
+          "request": {
+            "name": "Delete Site",
+            "description": {
+              "content": "Permanently delete a site and all associated data.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                ":site_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) The unique identifier of the target site."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3ac204a7-e64b-488a-8c40-f8acf503860e",
+              "name": "Site deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7924c382-ab23-4b97-ad1e-e094fbc7139b",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bdfe4bfd-3057-47fd-9965-d4765739dc55",
+          "name": "List Sites",
+          "request": {
+            "name": "List Sites",
+            "description": {
+              "content": "Get a paginated list of all sites in the partner account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Zero-based offset for elements (0..N)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "75",
+                  "description": "The size of the page to be returned (Max 100)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "CREATION_DATE",
+                  "description": "One of CREATION_DATE or LAST_PUBLICATION_DATE."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "DESC",
+                  "description": "Sort direction. One of ASC or DESC."
+                },
+                {
+                  "disabled": false,
+                  "key": "publish_status",
+                  "value": "<string>",
+                  "description": "Filter by publication status. One of PUBLISHED, UNPUBLISHED or NOT_PUBLISHED_YET."
+                },
+                {
+                  "disabled": false,
+                  "key": "label_names",
+                  "value": "<string>",
+                  "description": "Filter by site labels. Multiple values can be passed as a comma separated list."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published_date.gte",
+                  "value": "<string>",
+                  "description": "Filter by sites published after specified date e.g., 2016-07-09T22:33:44."
+                },
+                {
+                  "disabled": false,
+                  "key": "last_published_date.lte",
+                  "value": "<string>",
+                  "description": "Filter by sites published before specified date."
+                },
+                {
+                  "disabled": false,
+                  "key": "creation_date.gte",
+                  "value": "<string>",
+                  "description": "Filter by sites created after specified date."
+                },
+                {
+                  "disabled": false,
+                  "key": "creation_date.lte",
+                  "value": "<string>",
+                  "description": "Filter by sites created before specified date."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0660cbdb-e954-4ee7-84f4-ecc65f130b00",
+              "name": "Paginated list of sites",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "75"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "CREATION_DATE"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "DESC"
+                    },
+                    {
+                      "key": "publish_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "label_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_published_date.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_published_date.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "creation_date.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "creation_date.lte",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 4503,\n  \"limit\": 2581,\n  \"total_responses\": 1286,\n  \"results\": [\n    {\n      \"site_name\": \"string\",\n      \"account_name\": \"string\",\n      \"external_uid\": \"string\",\n      \"site_domain\": \"string\",\n      \"lang\": \"string\",\n      \"additionalLanguages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"google_tracking_id\": \"string\",\n      \"googletagmanager_container_id\": [\n        \"string\",\n        \"string\"\n      ],\n      \"template_id\": 8852,\n      \"site_default_domain\": \"string\",\n      \"preview_site_url\": \"string\",\n      \"overview_site_url\": \"string\",\n      \"editor_site_url\": \"string\",\n      \"last_published_date\": \"2015-12-20T14:25:35.148Z\",\n      \"first_published_date\": \"1966-06-19T18:45:03.236Z\",\n      \"modification_date\": \"1973-10-31T18:11:55.484Z\",\n      \"creation_date\": \"1990-11-13T16:09:55.785Z\",\n      \"publish_status\": \"PUBLISHED\",\n      \"force_https\": false,\n      \"thumbnail_url\": \"string\",\n      \"canonical_url\": \"string\",\n      \"store_status\": \"string\",\n      \"store_type\": \"THIRDPARTY\",\n      \"editor\": \"ADVANCED\",\n      \"fav_icon\": \"string\",\n      \"certificate_status\": \"string\",\n      \"last_reset_by\": \"string\",\n      \"site_business_info\": {\n        \"business_name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"address\": {\n          \"street\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\",\n          \"zip_code\": \"string\"\n        }\n      },\n      \"site_alternate_domains\": {\n        \"domains\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_redirect\": true\n      },\n      \"site_seo\": {\n        \"og_image\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"no_index\": true\n      },\n      \"labels\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"content_collection_form\": {\n        \"url\": \"string\",\n        \"url_expiration_date\": \"1963-08-12T10:26:03.451Z\"\n      }\n    },\n    {\n      \"site_name\": \"string\",\n      \"account_name\": \"string\",\n      \"external_uid\": \"string\",\n      \"site_domain\": \"string\",\n      \"lang\": \"string\",\n      \"additionalLanguages\": [\n        \"string\",\n        \"string\"\n      ],\n      \"google_tracking_id\": \"string\",\n      \"googletagmanager_container_id\": [\n        \"string\",\n        \"string\"\n      ],\n      \"template_id\": 5867,\n      \"site_default_domain\": \"string\",\n      \"preview_site_url\": \"string\",\n      \"overview_site_url\": \"string\",\n      \"editor_site_url\": \"string\",\n      \"last_published_date\": \"1966-09-17T03:05:24.141Z\",\n      \"first_published_date\": \"2009-11-30T23:09:15.720Z\",\n      \"modification_date\": \"1988-02-06T20:58:43.145Z\",\n      \"creation_date\": \"1983-09-27T10:15:54.684Z\",\n      \"publish_status\": \"UNPUBLISHED\",\n      \"force_https\": true,\n      \"thumbnail_url\": \"string\",\n      \"canonical_url\": \"string\",\n      \"store_status\": \"string\",\n      \"store_type\": \"THIRDPARTY\",\n      \"editor\": \"ADVANCED\",\n      \"fav_icon\": \"string\",\n      \"certificate_status\": \"string\",\n      \"last_reset_by\": \"string\",\n      \"site_business_info\": {\n        \"business_name\": \"string\",\n        \"email\": \"string\",\n        \"phone_number\": \"string\",\n        \"address\": {\n          \"street\": \"string\",\n          \"city\": \"string\",\n          \"state\": \"string\",\n          \"country\": \"string\",\n          \"zip_code\": \"string\"\n        }\n      },\n      \"site_alternate_domains\": {\n        \"domains\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_redirect\": true\n      },\n      \"site_seo\": {\n        \"og_image\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"no_index\": true\n      },\n      \"labels\": [\n        {\n          \"name\": \"string\"\n        },\n        {\n          \"name\": \"string\"\n        }\n      ],\n      \"content_collection_form\": {\n        \"url\": \"string\",\n        \"url_expiration_date\": \"1950-12-05T20:48:54.286Z\"\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "054e22e7-1f84-4682-85d2-d8fc3b8552be",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "75"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "CREATION_DATE"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "DESC"
+                    },
+                    {
+                      "key": "publish_status",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "label_names",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_published_date.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "last_published_date.lte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "creation_date.gte",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "creation_date.lte",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e50a681a-5cff-4af5-8349-365c9b48db14",
+          "name": "Update Site",
+          "request": {
+            "name": "Update Site",
+            "description": {
+              "content": "Update properties of an existing Site.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                "update",
+                ":site_name"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) The unique identifier of the target site."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"additionalLanguages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_domain_prefix\": \"<string>\",\n  \"external_uid\": \"<string>\",\n  \"fav_icon\": \"<string>\",\n  \"force_https\": \"<boolean>\",\n  \"google_tracking_id\": \"<string>\",\n  \"googletagmanager_container_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"lang\": \"<string>\",\n  \"schemas\": {\n    \"local_business\": {\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"site_alternate_domains\": {\n    \"domains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"is_redirect\": \"<boolean>\"\n  },\n  \"site_domain\": \"<string>\",\n  \"site_seo\": {\n    \"description\": \"<string>\",\n    \"og_image\": \"<string>\",\n    \"title\": \"<string>\",\n    \"no_index\": \"<boolean>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ac617ac1-7f4e-4bed-a00a-628652d39a90",
+              "name": "Site updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "update",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additionalLanguages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_domain_prefix\": \"<string>\",\n  \"external_uid\": \"<string>\",\n  \"fav_icon\": \"<string>\",\n  \"force_https\": \"<boolean>\",\n  \"google_tracking_id\": \"<string>\",\n  \"googletagmanager_container_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"lang\": \"<string>\",\n  \"schemas\": {\n    \"local_business\": {\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"site_alternate_domains\": {\n    \"domains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"is_redirect\": \"<boolean>\"\n  },\n  \"site_domain\": \"<string>\",\n  \"site_seo\": {\n    \"description\": \"<string>\",\n    \"og_image\": \"<string>\",\n    \"title\": \"<string>\",\n    \"no_index\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51e279ea-0ff3-40c4-8da8-b67d8d643919",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "update",
+                    ":site_name"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier of the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"additionalLanguages\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"default_domain_prefix\": \"<string>\",\n  \"external_uid\": \"<string>\",\n  \"fav_icon\": \"<string>\",\n  \"force_https\": \"<boolean>\",\n  \"google_tracking_id\": \"<string>\",\n  \"googletagmanager_container_id\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"labels\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"lang\": \"<string>\",\n  \"schemas\": {\n    \"local_business\": {\n      \"enabled\": \"<boolean>\"\n    }\n  },\n  \"site_alternate_domains\": {\n    \"domains\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"is_redirect\": \"<boolean>\"\n  },\n  \"site_domain\": \"<string>\",\n  \"site_seo\": {\n    \"description\": \"<string>\",\n    \"og_image\": \"<string>\",\n    \"title\": \"<string>\",\n    \"no_index\": \"<boolean>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.duda.co/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c099d7bc-0362-4f0d-a444-388b175284ed",
+    "name": "Duda Partner Accounts Sites API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.\n\nContact Support:\n Name: Duda Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

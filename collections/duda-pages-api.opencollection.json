@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts Pages API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Pages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name/pages",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the target Site."
+              }
+            ]
+          },
+          "docs": "Get details of all the Pages of a Site."
+        },
+        {
+          "info": {
+            "name": "Create Page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name/pages",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the target Site."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new Page on a site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

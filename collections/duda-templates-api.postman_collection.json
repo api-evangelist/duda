@@ -1,0 +1,371 @@
+{
+  "item": [
+    {
+      "id": "e9277bfc-26aa-4293-ac65-1195c32334a2",
+      "name": "Templates",
+      "description": {
+        "content": "Manage site templates",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e88c1d3b-561b-4076-a3fd-07e1dc37fcea",
+          "name": "List Templates",
+          "request": {
+            "name": "List Templates",
+            "description": {
+              "content": "Get all available Templates.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "ai_enabled",
+                  "value": "<boolean>",
+                  "description": "Filters by templates which have been set as AI Ready."
+                },
+                {
+                  "disabled": false,
+                  "key": "lang",
+                  "value": "<string>",
+                  "description": "Retrieve templates for specific languages."
+                },
+                {
+                  "disabled": false,
+                  "key": "has_store",
+                  "value": "<boolean>",
+                  "description": "Returns templates that include a store."
+                },
+                {
+                  "disabled": false,
+                  "key": "has_blog",
+                  "value": "<boolean>",
+                  "description": "Returns templates that include a blog."
+                },
+                {
+                  "disabled": false,
+                  "key": "store_type",
+                  "value": "<string>",
+                  "description": "Filter by store type: NATIVE or THIRDPARTY."
+                },
+                {
+                  "disabled": false,
+                  "key": "editor",
+                  "value": "<string>",
+                  "description": "Filter by editor type: ADVANCED or ADVANCED-2.0."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "Filter by template type: DUDA or CUSTOM."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_count",
+                  "value": "<integer>",
+                  "description": "Return templates with an exact page count."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_count.gte",
+                  "value": "<integer>",
+                  "description": "Return templates with a minimum number of pages."
+                },
+                {
+                  "disabled": false,
+                  "key": "page_count.lte",
+                  "value": "<integer>",
+                  "description": "Return templates with a maximum number of pages."
+                },
+                {
+                  "disabled": false,
+                  "key": "name.contains",
+                  "value": "<string>",
+                  "description": "Perform a text-based search within templates."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Choose sorting field. Currently only NAME."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "<string>",
+                  "description": "Choose direction of sort. ASC or DESC."
+                },
+                {
+                  "disabled": false,
+                  "key": "categories",
+                  "value": "<string>",
+                  "description": "Filters by one or more category labels. Multiple values separated by comma."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de8d41a4-8d76-4f2a-abc5-c81fbf47c090",
+              "name": "List of templates",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ai_enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "has_store",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "has_blog",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "store_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "editor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_count.gte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_count.lte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name.contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "60af26c6-ce85-4b4d-a655-f29a73c3ac00",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "ai_enabled",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "lang",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "has_store",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "has_blog",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "key": "store_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "editor",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "type",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page_count",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_count.gte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "page_count.lte",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "name.contains",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "categories",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.duda.co/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "2f9bbe52-a2a1-48bb-9084-ae420f65851b",
+    "name": "Duda Partner Accounts Templates API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.\n\nContact Support:\n Name: Duda Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

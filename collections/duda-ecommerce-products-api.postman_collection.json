@@ -1,0 +1,447 @@
+{
+  "item": [
+    {
+      "id": "6266ac2b-0b78-48b2-a577-0cb0bb55de7c",
+      "name": "eCommerce - Products",
+      "description": {
+        "content": "Manage eCommerce products",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d28a1464-28d5-4951-9e7e-b9cfb9a50ab1",
+          "name": "List Products",
+          "request": {
+            "name": "List Products",
+            "description": {
+              "content": "Get products page. Default page response size is 50, max requested page size is 200.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                ":site_name",
+                "ecommerce",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Zero-based offset for elements (0..N)."
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "50",
+                  "description": "The size of the page to be returned (Max 200)."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria."
+                },
+                {
+                  "disabled": false,
+                  "key": "direction",
+                  "value": "asc",
+                  "description": "asc or desc."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) The unique identifier for the target site."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3091f0f5-799d-4fa3-bb72-52edf092cf2c",
+              "name": "Paginated list of products",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "ecommerce",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier for the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"offset\": 247,\n  \"limit\": 3807,\n  \"total_responses\": 3060,\n  \"site_name\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7641cf1b-66e0-45b0-b4a9-5de015d7d9b4",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "ecommerce",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "direction",
+                      "value": "asc"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier for the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab862296-f502-46da-be75-b553383d3b98",
+          "name": "Create Product",
+          "request": {
+            "name": "Create Product",
+            "description": {
+              "content": "Creates new product for referenced catalog.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "sites",
+                "multiscreen",
+                ":site_name",
+                "ecommerce",
+                "products"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "site_name",
+                  "description": "(Required) The unique identifier for the target site."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"prices\": [\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    }\n  ],\n  \"images\": [\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    }\n  ],\n  \"quantity\": \"<integer>\",\n  \"managed_inventory\": false,\n  \"requires_shipping\": \"<boolean>\",\n  \"stock_status\": \"<string>\",\n  \"options\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"variations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_fields\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"seo\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"product_url\": \"<string>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3074d1e8-b114-4973-9972-226fc9d41103",
+              "name": "Product created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "ecommerce",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier for the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"prices\": [\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    }\n  ],\n  \"images\": [\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    }\n  ],\n  \"quantity\": \"<integer>\",\n  \"managed_inventory\": false,\n  \"requires_shipping\": \"<boolean>\",\n  \"stock_status\": \"<string>\",\n  \"options\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"variations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_fields\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"seo\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"product_url\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"name\": \"string\",\n  \"description\": \"string\",\n  \"type\": \"string\",\n  \"status\": \"string\",\n  \"sku\": \"string\",\n  \"external_id\": \"string\",\n  \"quantity\": 8129,\n  \"managed_inventory\": true,\n  \"requires_shipping\": true,\n  \"stock_status\": \"string\",\n  \"seo\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "139baf3b-1a99-4eb8-8240-3c3870333d34",
+              "name": "Bad request",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "sites",
+                    "multiscreen",
+                    ":site_name",
+                    "ecommerce",
+                    "products"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "site_name",
+                      "description": "(Required) The unique identifier for the target site."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"<string>\",\n  \"status\": \"<string>\",\n  \"sku\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"prices\": [\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    },\n    {\n      \"price\": \"<string>\",\n      \"compare_at_price\": \"<string>\"\n    }\n  ],\n  \"images\": [\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    },\n    {\n      \"url\": \"<string>\",\n      \"alt\": \"<string>\"\n    }\n  ],\n  \"quantity\": \"<integer>\",\n  \"managed_inventory\": false,\n  \"requires_shipping\": \"<boolean>\",\n  \"stock_status\": \"<string>\",\n  \"options\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"choices\": [\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        },\n        {\n          \"id\": \"<string>\",\n          \"value\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"variations\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"custom_fields\": [\n    \"<object>\",\n    \"<object>\"\n  ],\n  \"seo\": {\n    \"title\": \"<string>\",\n    \"description\": \"<string>\",\n    \"product_url\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error_code\": \"string\",\n  \"message\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.duda.co/api",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6b05548c-eb75-4f6a-892a-83cdb042364c",
+    "name": "Duda Partner Accounts eCommerce - Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.\n\nContact Support:\n Name: Duda Developer Documentation",
+      "type": "text/plain"
+    }
+  }
+}

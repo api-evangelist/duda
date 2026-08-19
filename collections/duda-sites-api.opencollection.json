@@ -1,0 +1,174 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts Sites API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sites",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.duda.co/api/sites/multiscreen/create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new Site from a Template."
+        },
+        {
+          "info": {
+            "name": "Get Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the target site."
+              }
+            ]
+          },
+          "docs": "Get the details of a site by name."
+        },
+        {
+          "info": {
+            "name": "Delete Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the target site."
+              }
+            ]
+          },
+          "docs": "Permanently delete a site and all associated data."
+        },
+        {
+          "info": {
+            "name": "List Sites",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen",
+            "params": [
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for elements (0..N)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned (Max 100)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "One of CREATION_DATE or LAST_PUBLICATION_DATE."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "Sort direction. One of ASC or DESC."
+              },
+              {
+                "name": "publish_status",
+                "value": "",
+                "type": "query",
+                "description": "Filter by publication status. One of PUBLISHED, UNPUBLISHED or NOT_PUBLISHED_YET."
+              },
+              {
+                "name": "label_names",
+                "value": "",
+                "type": "query",
+                "description": "Filter by site labels. Multiple values can be passed as a comma separated list."
+              },
+              {
+                "name": "last_published_date.gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sites published after specified date e.g., 2016-07-09T22:33:44."
+              },
+              {
+                "name": "last_published_date.lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sites published before specified date."
+              },
+              {
+                "name": "creation_date.gte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sites created after specified date."
+              },
+              {
+                "name": "creation_date.lte",
+                "value": "",
+                "type": "query",
+                "description": "Filter by sites created before specified date."
+              }
+            ]
+          },
+          "docs": "Get a paginated list of all sites in the partner account."
+        },
+        {
+          "info": {
+            "name": "Update Site",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.duda.co/api/sites/multiscreen/update/:site_name",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier of the target site."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update properties of an existing Site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

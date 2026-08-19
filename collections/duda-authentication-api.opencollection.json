@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts Authentication API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get SSO Link",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/accounts/sso/:account_name/link",
+            "params": [
+              {
+                "name": "account_name",
+                "value": "",
+                "type": "path",
+                "description": "The account name is a unique reference to the account."
+              },
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "query",
+                "description": "A valid site name of an existing website."
+              },
+              {
+                "name": "target",
+                "value": "",
+                "type": "query",
+                "description": "Target destination within Duda editor."
+              }
+            ]
+          },
+          "docs": "Generates a link that automatically logs an Account into Duda."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

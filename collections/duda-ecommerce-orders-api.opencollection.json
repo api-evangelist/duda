@@ -1,0 +1,68 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts eCommerce - Orders API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "eCommerce - Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name/ecommerce/orders",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the target site."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for elements (0..N)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Property used to sort orders."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "The sort direction, either asc or desc."
+              }
+            ]
+          },
+          "docs": "Get a paginated list of orders for a site."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Duda Partner Accounts eCommerce - Products API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "eCommerce - Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name/ecommerce/products",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the target site."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based offset for elements (0..N)."
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned (Max 200)."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria."
+              },
+              {
+                "name": "direction",
+                "value": "",
+                "type": "query",
+                "description": "asc or desc."
+              }
+            ]
+          },
+          "docs": "Get products page. Default page response size is 50, max requested page size is 200."
+        },
+        {
+          "info": {
+            "name": "Create Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.duda.co/api/sites/multiscreen/:site_name/ecommerce/products",
+            "params": [
+              {
+                "name": "site_name",
+                "value": "",
+                "type": "path",
+                "description": "The unique identifier for the target site."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates new product for referenced catalog."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
