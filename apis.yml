@@ -23,6 +23,13 @@ tags:
   - Website Builder
   - Agencies
   - White Label
+  - Software-as-a-Service
+  - E-Commerce
+  - CMS
+tags_raw:
+  - Website Builder
+  - Agencies
+  - White Label
   - SaaS
   - eCommerce
   - CMS
@@ -33,6 +40,8 @@ apis:
   humanURL: https://developer.duda.co/docs/partner-api-introduction
   baseURL: https://api.duda.co/api
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -114,6 +123,8 @@ apis:
   humanURL: https://developer.duda.co/docs/partner-api-introduction
   baseURL: https://api.duda.co/api
   tags:
+  - Collection
+  tags_raw:
   - Collections
   properties:
   - type: OpenAPI
@@ -276,6 +287,8 @@ apis:
   humanURL: https://developer.duda.co/docs/partner-api-introduction
   baseURL: https://api.duda.co/api
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
