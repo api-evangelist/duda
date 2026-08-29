@@ -1,6 +1,20 @@
 aid: duda
 name: Duda
 description: Duda is a professional website builder platform for agencies, SaaS companies, and web professionals. It provides a REST API for creating and managing websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, and white-label client portal access. The platform is designed for digital agencies to build and manage websites at scale.
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
