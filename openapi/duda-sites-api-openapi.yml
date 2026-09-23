@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Duda Partner Accounts Sites API
+  title: Duda Partner Sites API
   version: '1.0'
   description: The Duda Partner API is a REST API that enables partners and agencies to programmatically create and manage websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, memberships, bookings, and white-label client portal access. It supports SSO for seamless user login into the Duda editor and provides webhook integration for event-driven workflows.
   contact:
@@ -348,15 +348,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total_responses:
-          type: integer
     ErrorResponse:
       type: object
       properties:
@@ -503,6 +494,15 @@ components:
             url_expiration_date:
               type: string
               format: date-time
+    PaginatedResponse:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_responses:
+          type: integer
   securitySchemes:
     basicAuth:
       type: http
