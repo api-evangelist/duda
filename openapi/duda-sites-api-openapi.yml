@@ -357,13 +357,6 @@ components:
           type: integer
         total_responses:
           type: integer
-    ErrorResponse:
-      type: object
-      properties:
-        error_code:
-          type: string
-        message:
-          type: string
     SiteData:
       type: object
       properties:
@@ -503,6 +496,13 @@ components:
             url_expiration_date:
               type: string
               format: date-time
+    ErrorResponse:
+      type: object
+      properties:
+        error_code:
+          type: string
+        message:
+          type: string
   securitySchemes:
     basicAuth:
       type: http
