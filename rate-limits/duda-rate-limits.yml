@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: Duda API Rate Limits
 description: The Duda Partner API enforces rate limits to ensure platform stability and fair usage across all partners. The API has a hard limit of 10 API calls per second across all endpoints. Exceeding the rate limit returns a 429 Too Many Requests HTTP status code, requiring callers to back off and retry. For batch processes Duda recommends pacing requests to one call every 125 milliseconds (approximately 8 requests per second) to stay safely within limits.
 url: https://developer.duda.co/reference/introduction

@@ -1,3 +1,11 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+# Coverage demoted 2026-10-07 (roadmap#942, PLAN.md Stage A): this file was written by an API Evangelist
+# sweep and names no billing unit, meters or pricing category read from the provider — it restates the
+# FinOps framework. It is `x-coverage: unmeasured`, and the FOCUS alignment it claimed has been removed.
+x-coverage: unmeasured
+method: generated
 name: Duda FinOps
 description: Financial operations guidance for managing Duda API and platform costs. Duda pricing is subscription-based with per-site costs, team member seats, and optional eCommerce add-ons. API access is included in all paid plans, with unlimited API calls available on the Custom enterprise tier. Cost optimization focuses on choosing the right plan tier based on site volume, using annual billing for 25% savings, and negotiating volume pricing on the Custom plan.
 url: https://www.duda.co/pricing
