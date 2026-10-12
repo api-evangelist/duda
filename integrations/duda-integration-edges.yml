@@ -1,0 +1,436 @@
+generated: '2026-10-12'
+method: searched
+source:
+- https://zapier.com/apps/duda/integrations
+checked:
+- https://composio.dev/toolkits/duda
+- https://monid.ai/tools/duda
+- https://n8n.io/integrations/duda/
+- https://zapier.com/apps/duda/integrations
+summary: null
+marketplace_apps:
+- marketplace: zapier
+  channel: ipaas-listing
+  app: duda
+  url: https://zapier.com/apps/duda/integrations
+  external_url: https://www.duda.co/
+  partner_tier: GOLD
+  triggers:
+  - key: blog_post
+    label: Published Blog Post
+  - key: comment
+    label: New or Updated Site Comment
+  - key: form_response
+    label: New Form Response
+  - key: member
+    label: Member Created/Updated/Deleted
+  - key: native_store_order
+    label: New Native Store Order
+  - key: native_store_product
+    label: Store Product Created or Updated
+  - key: store_order
+    label: New or Updated Third Party Store Order
+  actions:
+  - key: blog_post
+    label: Create a Blog Post
+  - key: client
+    label: Create a Client
+  - key: collection
+    label: Add Collection Row
+  - key: contentLibrary
+    label: Update Content Library
+  - key: site
+    label: Create a Site
+  searches: []
+edges:
+- partner_name: Google Sheets
+  partner: google-sheets
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/google-sheets
+  direction: third-party
+  category: Google
+  partner_url: http://sheets.google.com/
+- partner_name: LeadConnector
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/leadconnector
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.leadconnectorhq.com/
+- partner_name: monday.com
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/monday
+  direction: third-party
+  category: Project Management
+  partner_url: https://monday.com/
+- partner_name: Cloudinary
+  partner: cloudinary
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/cloudinary
+  direction: third-party
+  category: Developer Tools
+  partner_url: https://cloudinary.com/
+- partner_name: Mailchimp
+  partner: mailchimp
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/mailchimp
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://mailchimp.com/
+- partner_name: Gmail
+  partner: gmail
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/gmail
+  direction: third-party
+  category: Email
+  partner_url: https://mail.google.com/
+- partner_name: HubSpot
+  partner: hubspot
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/hubspot
+  direction: third-party
+  category: Marketing Automation
+  partner_url: http://www.hubspot.com/
+- partner_name: ChatGPT (OpenAI)
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/chatgpt
+  direction: third-party
+  category: AI Assistants
+  partner_url: https://chat.openai.com/chat
+- partner_name: Shopify
+  partner: shopify
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/shopify
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.shopify.com/
+- partner_name: Constant Contact
+  partner: constant-contact
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/constant-contact
+  direction: third-party
+  category: Email Newsletters
+  partner_url: http://www.constantcontact.com/signup.jsp?pn=zapier
+- partner_name: Heights Platform
+  partner: null
+  partner_match: null
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/heights-platform
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.heightsplatform.com/
+- partner_name: Clio
+  partner: clio
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/clio
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: http://www.goclio.com/
+- partner_name: LinkedIn
+  partner: linkedin
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/linkedin
+  direction: third-party
+  category: Microsoft
+  partner_url: http://www.linkedin.com/
+- partner_name: Ecwid by Lightspeed
+  partner: ecwid
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/ecwid
+  direction: third-party
+  category: eCommerce
+  partner_url: https://www.ecwid.com/
+- partner_name: ActiveCampaign
+  partner: activecampaign
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/activecampaign
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.activecampaign.com/?utm_source=unpaid_syndication_website&utm_medium=referral&utm_campaign=zapier_listing
+- partner_name: Brevo
+  partner: brevo
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/brevo
+  direction: third-party
+  category: Email Newsletters
+  partner_url: https://www.sendinblue.com/?utm_medium=plugin&utm_source=zapier
+- partner_name: Slack
+  partner: slack
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/slack
+  direction: third-party
+  category: Team Chat
+  partner_url: https://slack.com/
+- partner_name: ClickUp
+  partner: clickup
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/clickup
+  direction: third-party
+  category: Project Management
+  partner_url: https://clickup.com/zapier
+- partner_name: MailerLite
+  partner: mailerlite
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/mailerlite
+  direction: third-party
+  category: Marketing Automation
+  partner_url: https://www.mailerlite.com/?utm_source=zapier&utm_medium=partner&utm_campaign=profile&utm_term=learn_more&utm_content=integrations
+- partner_name: Airtable
+  partner: airtable
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/airtable
+  direction: third-party
+  category: Databases
+  partner_url: https://airtable.com/
+- partner_name: Pipedrive
+  partner: pipedrive
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/pipedrive
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://pipedrive.com/
+- partner_name: ShipStation
+  partner: shipstation
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/shipstation
+  direction: third-party
+  category: eCommerce
+  partner_url: http://www.shipstation.com/
+- partner_name: Jotform
+  partner: jotform
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/jotform
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://www.jotform.com/
+- partner_name: Notion
+  partner: notion
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/notion
+  direction: third-party
+  category: Task Management
+  partner_url: https://www.notion.so/
+- partner_name: Zoho CRM
+  partner: zoho-crm
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/zoho-crm
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://go.zoho.com/wOk
+- partner_name: Shippo
+  partner: shippo
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/shippo
+  direction: third-party
+  category: eCommerce
+  partner_url: https://goshippo.com/
+- partner_name: Salesforce
+  partner: salesforce
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/salesforce
+  direction: third-party
+  category: CRM (Customer Relationship Management)
+  partner_url: https://www.salesforce.com/
+- partner_name: Gravity Forms
+  partner: gravity-forms
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/gravity-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: https://www.gravityforms.com/?utm_campaign=partners&utm_source=zapier-listing-learn-more&utm_medium=free-placement
+- partner_name: Google Forms
+  partner: google-forms
+  partner_match: name-exact
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/google-forms
+  direction: third-party
+  category: Forms & Surveys
+  partner_url: http://google.com/
+- partner_name: Katana
+  partner: katana
+  partner_match: domain
+  partner_candidate: null
+  type: marketplace
+  marketplace: zapier
+  channel: ipaas-usage
+  evidence: https://zapier.com/apps/duda/integrations/katana-mrp
+  direction: third-party
+  category: eCommerce
+  partner_url: https://katanamrp.com/
+templates:
+- title: Add new Duda form submissions to Google Sheets rows
+  url: https://zapier.com/apps/duda/integrations/google-sheets/1077016/add-new-duda-form-submissions-to-google-sheets-rows
+  apps:
+  - duda
+  - google-sheets
+- title: Add a new Mailchimp subscriber from a new Duda form submission
+  url: https://zapier.com/apps/duda/integrations/mailchimp/1077035/add-a-new-mailchimp-subscriber-from-a-new-duda-form-submission
+  apps:
+  - duda
+  - mailchimp
+- title: Create a new contact in Hubspot from a new Duda form submission
+  url: https://zapier.com/apps/duda/integrations/hubspot/1077020/create-a-new-contact-in-hubspot-from-a-new-duda-form-submission
+  apps:
+  - duda
+  - hubspot
+- title: Add Google Sheets rows for new Duda native orders
+  url: https://zapier.com/apps/duda/integrations/google-sheets/1185963/add-google-sheets-rows-for-new-duda-native-orders
+  apps:
+  - duda
+  - google-sheets
+- title: Publish a new Duda blog post on LinkedIn
+  url: https://zapier.com/apps/duda/integrations/linkedin/1076998/publish-a-new-duda-blog-post-on-linkedin
+  apps:
+  - duda
+  - linkedin
+- title: Add an email address to a Constant Contact list from a new Duda form submission
+  url: https://zapier.com/apps/constant-contact/integrations/duda/1077012/add-an-email-address-to-a-constant-contact-list-from-a-new-duda-form-submission
+  apps:
+  - duda
+  - constant-contact
+- title: Add a row to an Internal Collection for a new Duda form submission
+  url: https://zapier.com/apps/duda/integrations/duda/1077002/add-a-row-to-an-internal-collection-for-a-new-duda-form-submission
+  apps:
+  - duda
+- title: Send new Duda form submission data to Slack
+  url: https://zapier.com/apps/duda/integrations/slack/1077024/send-new-duda-form-submission-data-to-slack
+  apps:
+  - duda
+  - slack
+- title: Create a new Google Task from a new comment on a Duda Site
+  url: https://zapier.com/apps/duda/integrations/google-tasks/1082454/create-a-new-google-task-from-a-new-comment-on-a-duda-site
+  apps:
+  - duda
+  - google-tasks
+- title: Create Zoho CRM leads from new Duda form submissions
+  url: https://zapier.com/apps/duda/integrations/zoho-crm/1077028/create-zoho-crm-leads-from-new-duda-form-submissions
+  apps:
+  - duda
+  - zoho-crm
+- title: Generate blog posts with ChatGPT conversations for new Duda form responses
+  url: https://zapier.com/apps/duda/integrations/duda/255580185/generate-blog-posts-with-chatgpt-conversations-for-new-duda-form-responses
+  apps:
+  - duda
+  - chatgpt
+- title: Add a row to an Airtable for a new Duda form submission
+  url: https://zapier.com/apps/airtable/integrations/duda/1077004/add-a-row-to-an-airtable-for-a-new-duda-form-submission
+  apps:
+  - duda
+  - airtable
+template_total: 366
