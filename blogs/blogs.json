@@ -2,11 +2,11 @@
   "repo": "duda",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/duda",
-      "feed_url": "https://www.linkedin.com/company/duda",
+      "source": "https://blog.duda.co/",
+      "feed_url": "https://blog.duda.co/feed/rss2",
       "title": "",
       "saved": 0,
-      "method": "none"
+      "method": "discovered"
     },
     {
       "source": "https://blog.duda.co/feed/rss2",
@@ -14,9 +14,16 @@
       "title": "",
       "saved": 0,
       "method": "feed"
+    },
+    {
+      "source": "https://www.linkedin.com/company/duda",
+      "feed_url": "https://www.linkedin.com/company/duda",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 61,
   "feed_nature": "vendor-blog",
   "feed_nature_basis": "blog_subdomain",
