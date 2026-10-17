@@ -348,15 +348,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    PaginatedResponse:
-      type: object
-      properties:
-        offset:
-          type: integer
-        limit:
-          type: integer
-        total_responses:
-          type: integer
     SiteData:
       type: object
       properties:
@@ -496,6 +487,15 @@ components:
             url_expiration_date:
               type: string
               format: date-time
+    PaginatedResponse:
+      type: object
+      properties:
+        offset:
+          type: integer
+        limit:
+          type: integer
+        total_responses:
+          type: integer
     ErrorResponse:
       type: object
       properties:
