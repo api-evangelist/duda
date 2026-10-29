@@ -64,55 +64,136 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Duda is a professional website builder platform designed for agencies, SaaS companies, and web professionals who build and manage websites at scale. The platform offers a robust REST API enabling programmatic site creation, content management, white-label branding, and eCommerce integration.
+Duda is a professional website builder platform for agencies, SaaS companies, and web professionals. It provides a REST API for creating and managing websites, pages, templates, sections, content, widgets, eCommerce stores, blog posts, dynamic collections, and white-label client portal access. The platform is designed for digital agencies to build and manage websites at scale.
 
-## Overview
+**Areas:** Website Builder · Agencies · White Label · Software-as-a-Service · E-Commerce · CMS
 
-- **Website**: https://www.duda.co
-- **Developer Portal**: https://developer.duda.co
-- **API Reference**: https://developer.duda.co/reference/introduction
-- **Pricing**: https://www.duda.co/pricing
-- **Status Page**: https://status.duda.co
-- **Blog**: https://blog.duda.co
-- **GitHub**: https://github.com/dudadev
-- **LinkedIn**: https://www.linkedin.com/company/duda
-- **X (Twitter)**: https://twitter.com/buildwithduda
+## Duda on APIs.io
 
-## Partner API
+Everything profiled for Duda is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/duda/](https://apis.io/providers/duda/)** — or go straight to one of the APIs or properties below.
 
-The Duda Partner API is a REST API with JSON responses that allows partners to:
+### APIs (10)
 
-- Create and manage websites and pages
-- Apply and manage templates
-- Inject and update content and collections
-- Manage eCommerce stores, products, and orders
-- Create and publish blog posts
-- Manage SSO for white-label client portal access
-- Configure webhooks for event-driven integrations
-- Generate sites using Duda's AI stack
-- Manage memberships, bookings, and navigation
+- [Duda Accounts API](https://apis.io/apis/duda/duda-accounts-api/) — Manage partner and customer accounts
+- [Duda Authentication API](https://apis.io/apis/duda/duda-authentication-api/) — SSO and access token management
+- [Duda Blog API](https://apis.io/apis/duda/duda-blog-api/) — Manage site blogs and blog posts
+- [Duda Collections API](https://apis.io/apis/duda/duda-collections-api/) — Manage dynamic data collections
+- [Duda eCommerce - Orders API](https://apis.io/apis/duda/duda-ecommerce-orders-api/) — Manage eCommerce orders
+- [Duda eCommerce - Products API](https://apis.io/apis/duda/duda-ecommerce-products-api/) — Manage eCommerce products
+- [Duda Pages API](https://apis.io/apis/duda/duda-pages-api/) — Create and manage site pages
+- [Duda Sites API](https://apis.io/apis/duda/duda-sites-api/) — Create, read, update, and delete websites
+- [Duda Templates API](https://apis.io/apis/duda/duda-templates-api/) — Manage site templates
+- [Duda Webhooks API](https://apis.io/apis/duda/duda-webhooks-api/) — Subscribe to site and account events
 
-**Base URL**: `https://api.duda.co/api`
+### Published properties
 
-**Authentication**: HTTP Basic Auth using API credentials from the Duda dashboard under Business Tools > API Access.
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-**Rate Limits**: 10 requests per second (hard limit); 8 requests per second recommended for batch processes.
+#### Agentic access (1)
 
-## Plans
+Which operations an agent can call, which act, and which need a human in the loop.
 
-| Plan | Monthly | Annual | Sites | Team Members |
-|------|---------|--------|-------|--------------|
-| Basic | $19/mo | $9.50/mo | 1 | - |
-| Team | $29/mo | $14.50/mo | 1 | 3 |
-| Agency | $52/mo | $26/mo | 4 | 6 |
-| White Label | $149/mo | $74.50/mo | 4 | 6 |
-| Custom | Contact Sales | Contact Sales | Volume | Unlimited |
+- [Duda Agentic Access](https://apis.io/agentic-access/duda/duda-agentic-access/)
 
-Additional sites are $17-19/mo each. eCommerce add-ons range from $7-52/mo per site based on product catalog size.
+#### Collections (10)
 
-## Resources
+Postman and Open Collection request collections.
 
-- [apis.yml](apis.yml) - APIs.json provider profile
-- [plans/duda-plans-pricing.yml](plans/duda-plans-pricing.yml) - Pricing plan details
-- [rate-limits/duda-rate-limits.yml](rate-limits/duda-rate-limits.yml) - API rate limit specifications
-- [finops/duda-finops.yml](finops/duda-finops.yml) - FinOps cost optimization guidance
+- [Duda Partner Accounts API](https://apis.io/collections/duda/open-duda-accounts-api/)
+- [Duda Partner Accounts Authentication API](https://apis.io/collections/duda/open-duda-authentication-api/)
+- [Duda Partner Accounts Blog API](https://apis.io/collections/duda/open-duda-blog-api/)
+- [Duda Partner Accounts Collections API](https://apis.io/collections/duda/open-duda-collections-api/)
+- [Duda Partner Accounts eCommerce - Orders API](https://apis.io/collections/duda/open-duda-ecommerce-orders-api/)
+- [Duda Partner Accounts eCommerce - Products API](https://apis.io/collections/duda/open-duda-ecommerce-products-api/)
+- [Duda Partner Accounts Pages API](https://apis.io/collections/duda/open-duda-pages-api/)
+- [Duda Partner Accounts Sites API](https://apis.io/collections/duda/open-duda-sites-api/)
+- [Duda Partner Accounts Templates API](https://apis.io/collections/duda/open-duda-templates-api/)
+- [Duda Partner Accounts Webhooks API](https://apis.io/collections/duda/open-duda-webhooks-api/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Duda Authentication](https://apis.io/security/duda/duda-authentication/)
+- [Duda Domain Security](https://apis.io/security/duda/duda-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Duda Plans Pricing](https://apis.io/plans/duda/duda-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Duda Rate Limits](https://apis.io/rate-limits/duda/duda-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Duda Finops](https://apis.io/finops/duda/duda-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.duda.co)
+- [Documentation](https://developer.duda.co)
+- [Pricing](https://www.duda.co/pricing)
+- [Blog](https://blog.duda.co/)
+- [Status](https://status.duda.co)
+
+## API Evangelist rating
+
+**Kin Score 34.5** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 51.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 42.1 |
+| Developer ergonomics | 26.2 |
+| Access clarity | 18.4 |
+
+**Agent readiness 28.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 11.8** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/duda/](https://apis.io/providers/duda/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Duda: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/duda/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
